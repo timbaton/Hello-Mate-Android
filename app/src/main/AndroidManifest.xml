@@ -13,7 +13,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".ui.login.LoginScreenActivity" android:theme="@style/SplashTheme"/>
+        <activity android:name=".ui.login.LoginScreenActivity"/>
 
         <activity android:name=".ui.splash.SplashScreenActivity"
                   android:theme="@style/SplashTheme">

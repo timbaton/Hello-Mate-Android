@@ -4,7 +4,7 @@ import com.example.kyrs.presentation.base.BaseView
 
 /**
  * Project Kyrs
- * Package com.example.kyrs.presentation.splash
+ * Package com.example.kyrs.presentation.splash_background
  *
  *
  *

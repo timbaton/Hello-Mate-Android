@@ -10,7 +10,7 @@ import com.example.kyrs.di.Scopes
 import com.example.kyrs.ui.base.BaseActivity
 import com.example.kyrs.presentation.login.LoginScreenPresenter
 import com.example.kyrs.presentation.login.LoginScreenView
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_login.*
 import toothpick.Toothpick
 
 /**
@@ -24,7 +24,7 @@ import toothpick.Toothpick
  */
 class LoginScreenActivity : BaseActivity(), LoginScreenView {
 
-    override var res: Int = R.layout.activity_main
+    override var res: Int = R.layout.activity_login
 
     companion object {
         fun getIntent(screen: Context): Intent {

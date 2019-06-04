@@ -15,7 +15,7 @@ import toothpick.Toothpick
 
 /**
  * Project Kyrs
- * Package com.example.kyrs.ui.splash
+ * Package com.example.kyrs.ui.splash_background
  *
  *
  *
@@ -41,6 +41,5 @@ class SplashScreenActivity : BaseActivity(), SplashScreenView {
 
     override fun openLoginScreen() {
         startActivity(LoginScreenActivity.getIntent(this))
-
     }
 }
