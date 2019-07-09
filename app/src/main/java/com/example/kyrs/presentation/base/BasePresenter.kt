@@ -14,7 +14,7 @@ import io.reactivex.disposables.Disposable
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-05-31
  * Copyright © 2018 SuperEgo. All rights reserved.
  */
-abstract class BasePresenter<view: MvpView> : MvpPresenter<view>() {
+abstract class BasePresenter<view : MvpView> : MvpPresenter<view>() {
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -25,9 +25,5 @@ abstract class BasePresenter<view: MvpView> : MvpPresenter<view>() {
 
     protected fun Disposable.connect() {
         compositeDisposable.add(this)
-    }
-
-    open fun test() {
-
     }
 }

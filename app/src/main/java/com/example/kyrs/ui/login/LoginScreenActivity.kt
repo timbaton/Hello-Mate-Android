@@ -10,6 +10,7 @@ import com.example.kyrs.di.Scopes
 import com.example.kyrs.ui.base.BaseActivity
 import com.example.kyrs.presentation.login.LoginScreenPresenter
 import com.example.kyrs.presentation.login.LoginScreenView
+import com.example.kyrs.ui.registration.RegistrationActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import toothpick.Toothpick
 
@@ -44,6 +45,13 @@ class LoginScreenActivity : BaseActivity(), LoginScreenView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        button.setOnClickListener { presenter.onLoginClicked(etLogin.text.toString(), etPassword.text.toString()) }
+        btnEnter.setOnClickListener { presenter.onLoginClicked(etLogin.text.toString(), etPassword.text.toString()) }
+
+        btnNewUser.setOnClickListener { presenter.onRegistrateCliecked() }
+    }
+
+    override fun openRegistrationActivity() {
+        val intent = RegistrationActivity.getIntent(this)
+        startActivity(intent)
     }
 }

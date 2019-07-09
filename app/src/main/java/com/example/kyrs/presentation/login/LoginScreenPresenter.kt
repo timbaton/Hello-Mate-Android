@@ -21,17 +21,15 @@ class LoginScreenPresenter @Inject constructor(
 ) : BasePresenter<LoginScreenView>() {
 
     fun onLoginClicked(login: String, password: String) {
-//        authRepository.login(login, password)
-//            .subscribe({
-//                println(it.age)
-//            },{
-//
-//            }).connect()
         authRepository.login(login, password)
             .subscribe({
                 authRepository.saveAuthData(it.userId, it.token)
             }, {
                 viewState.showMessage("something is wrong")
             }).connect()
+    }
+
+    fun onRegistrateCliecked() {
+        viewState.openRegistrationActivity()
     }
 }

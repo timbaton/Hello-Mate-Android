@@ -13,4 +13,6 @@ import com.example.kyrs.presentation.base.BaseView
  */
 interface LoginScreenView : BaseView {
 
+    fun openRegistrationActivity()
+
 }

@@ -42,8 +42,8 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColorHint="@color/white_70"
-                android:hint="password"
-                android:text="kreves"/>
+                android:hint="login"
+                android:text="Kama"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -62,12 +62,12 @@
                 android:textColorHint="@color/white_70"
                 android:hint="password"
                 android:textStyle="bold"
-                android:text="kreves"
+                android:text="q"
                 android:id="@+id/etPassword"/>
     </android.support.design.widget.TextInputLayout>
 
     <Button
-            android:id="@+id/button"
+            android:id="@+id/btnEnter"
             android:layout_width="match_parent"
             android:layout_marginTop="44dp"
             android:background="@drawable/bg_purple_100dp"
