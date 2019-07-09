@@ -24,7 +24,7 @@ import toothpick.Toothpick
  */
 class LoginScreenActivity : BaseActivity(), LoginScreenView {
 
-    override var res: Int = R.layout.activity_login
+    override var res: Int? = R.layout.activity_login
 
     companion object {
         fun getIntent(screen: Context): Intent {
@@ -44,8 +44,6 @@ class LoginScreenActivity : BaseActivity(), LoginScreenView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        button.setOnClickListener { presenter.onButtonClicked() }
-
+        button.setOnClickListener { presenter.onLoginClicked(etLogin.text.toString(), etPassword.text.toString()) }
     }
-
 }

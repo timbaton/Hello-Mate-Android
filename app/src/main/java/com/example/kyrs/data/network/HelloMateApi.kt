@@ -1,8 +1,12 @@
 package com.example.kyrs.data.network
 
-import com.example.kyrs.entity.User
+import com.example.kyrs.data.entity.request.LoginRequest
+import com.example.kyrs.data.entity.response.LoginResponse
+import com.example.kyrs.data.entity.response.User
 import io.reactivex.Single
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 
 /**
@@ -16,6 +20,9 @@ import retrofit2.http.GET
  */
 interface HelloMateApi {
 
-    @GET("/users")
-    fun getUsers(): Single<List<User>>
+    @GET("/rest/users")
+    fun getUsers(): Single<User>
+
+    @POST("/rest/login")
+    fun login(@Body loginRequest: LoginRequest): Single<LoginResponse>
 }

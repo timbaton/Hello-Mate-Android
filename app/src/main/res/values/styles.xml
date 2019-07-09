@@ -9,8 +9,12 @@
         <item name="android:statusBarColor">@color/dark_toolbar</item>
     </style>
 
-    <style name="SplashTheme" parent="AppTheme">
+    <style name="SplashTheme" parent="NoStatusBar">
         <item name="android:windowBackground">@drawable/splash_background</item>
+
+    </style>
+
+    <style name="NoStatusBar" parent="AppTheme">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>

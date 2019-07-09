@@ -19,6 +19,7 @@ import toothpick.config.Module
 class ServerModule (baseUrl: String): Module() {
 
     init {
+
         bind(String::class.java).withName(ServerPath::class.java).toInstance(baseUrl)
 
 //        Retrofit

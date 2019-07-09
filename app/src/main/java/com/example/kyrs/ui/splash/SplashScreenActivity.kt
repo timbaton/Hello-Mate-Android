@@ -1,5 +1,6 @@
 package com.example.kyrs.ui.splash
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.kyrs.presentation.splash.SplashScreenView
 import com.example.kyrs.ui.base.BaseActivity
@@ -24,7 +25,7 @@ import toothpick.Toothpick
  */
 class SplashScreenActivity : BaseActivity(), SplashScreenView {
 
-    override var res: Int = R.layout.activity_splash
+    override var res: Int? = null
 
     @InjectPresenter
     lateinit var presenter: SplashScreenPresenter
@@ -41,5 +42,6 @@ class SplashScreenActivity : BaseActivity(), SplashScreenView {
 
     override fun openLoginScreen() {
         startActivity(LoginScreenActivity.getIntent(this))
+        finish()
     }
 }

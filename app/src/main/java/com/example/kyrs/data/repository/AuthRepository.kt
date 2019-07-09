@@ -1,0 +1,39 @@
+package com.example.kyrs.data.repository
+
+import com.example.kyrs.data.entity.request.LoginRequest
+import com.example.kyrs.data.entity.response.LoginResponse
+import com.example.kyrs.data.network.HelloMateApi
+import com.example.kyrs.data.sharedPref.AuthHolder
+import com.example.kyrs.di.ServerPath
+import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
+
+/**
+ * Project HelloMate
+ * Package com.example.kyrs.data.repository
+ *
+ *
+ *
+ * Created by Timur Badretdinov (aka timurbadretdinov) 2019-07-07
+ * Copyright © 2018 SuperEgo. All rights reserved.
+ */
+class AuthRepository @Inject constructor(
+    private var api: HelloMateApi,
+    @ServerPath private var string: String,
+    private val authHolder: AuthHolder
+) {
+
+    fun login(login: String, password: String): Single<LoginResponse> {
+        val loginRequestBody = LoginRequest(login, password)
+        return api.login(loginRequestBody)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun saveAuthData(id: Int, token: String) {
+        authHolder.userId = id
+        authHolder.token = token
+    }
+}

@@ -1,10 +1,8 @@
 package com.example.kyrs.presentation.login
 
 import com.arellomobile.mvp.InjectViewState
+import com.example.kyrs.data.repository.AuthRepository
 import com.example.kyrs.presentation.base.BasePresenter
-import com.example.kyrs.data.network.HelloMateApi
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 
@@ -19,26 +17,21 @@ import javax.inject.Inject
  */
 @InjectViewState
 class LoginScreenPresenter @Inject constructor(
-    var api: HelloMateApi
+    private var authRepository: AuthRepository
 ) : BasePresenter<LoginScreenView>() {
 
-    override fun onFirstViewAttach() {
-        super.onFirstViewAttach()
-    }
-
-    fun onButtonClicked() {
-
-        api.getUsers()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+    fun onLoginClicked(login: String, password: String) {
+//        authRepository.login(login, password)
+//            .subscribe({
+//                println(it.age)
+//            },{
+//
+//            }).connect()
+        authRepository.login(login, password)
             .subscribe({
-                viewState.showMessage(it.get(0).hobbies)
+                authRepository.saveAuthData(it.userId, it.token)
             }, {
-                viewState.showMessage(it.message.toString())
+                viewState.showMessage("something is wrong")
             }).connect()
     }
-//
-//    fun showMessage(message: String) {
-//        viewState.showMessage(message)
-//    }
 }

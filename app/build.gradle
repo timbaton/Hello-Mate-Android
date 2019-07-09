@@ -18,7 +18,7 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField('String', 'API_URL', '"http://10.12.240.47:8080/"')
+            buildConfigField('String', 'API_URL', '"http://192.168.1.4:8080/"')
         }
 
         release {
@@ -58,8 +58,6 @@ dependencies {
 
 //    toothpick
     implementation 'com.github.stephanenicolas.toothpick:toothpick-runtime:2.1.0'
-    implementation 'com.github.stephanenicolas.toothpick:smoothie-androidx:2.1.0'
-    annotationProcessor 'com.github.stephanenicolas.toothpick:toothpick-compiler:2.1.0'
     kapt 'com.github.stephanenicolas.toothpick:toothpick-compiler:2.1.0'
 
 //    RxJava

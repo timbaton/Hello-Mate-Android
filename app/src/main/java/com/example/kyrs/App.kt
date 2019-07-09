@@ -2,6 +2,7 @@ package com.example.kyrs
 
 import android.app.Application
 import com.example.kyrs.di.Scopes
+import com.example.kyrs.di.modules.AppModule
 import com.example.kyrs.di.modules.ServerModule
 import toothpick.Toothpick
 import toothpick.configuration.Configuration
@@ -28,15 +29,14 @@ class App : Application() {
 
         if (BuildConfig.DEBUG) {
             Toothpick.setConfiguration(Configuration.forDevelopment().preventMultipleRootScopes())
-        } else {
-//            Toothpick.setConfiguration(Configuration.forProduction().disableReflection())
-//            FactoryRegistryLocator.setRootRegistry(FactoryRegistry())
-//            MemberInjectorRegistryLocator
-//                .setRootRegistry(MemberInjectorRegistry())
         }
 
-        val scope = Toothpick.openScope(Scopes.Server)
-        scope.installModules(ServerModule(BuildConfig.API_URL))
-        Toothpick.inject(this, scope)
+        val appScope = Toothpick.openScope(Scopes.App)
+        appScope.installModules(AppModule(this))
+
+        val serverScope = Toothpick.openScopes(Scopes.App, Scopes.Server)
+        serverScope.installModules(ServerModule(BuildConfig.API_URL))
+
+//        Toothpick.inject(this, scope)
     }
 }

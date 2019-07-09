@@ -16,7 +16,7 @@ import com.example.kyrs.presentation.base.BaseView
  */
 abstract class BaseActivity : MvpAppCompatActivity(), BaseView {
 
-    abstract var res: Int
+    abstract var res: Int?
 
     override fun showMessage(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
@@ -25,8 +25,8 @@ abstract class BaseActivity : MvpAppCompatActivity(), BaseView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        res.apply {
-            setContentView(this)
+        res?.let {
+            setContentView(it)
         }
     }
 }
