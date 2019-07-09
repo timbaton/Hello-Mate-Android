@@ -54,14 +54,14 @@
         </android.support.design.widget.TextInputLayout>
 
         <Button
-                android:id="@+id/btnEnter"
+                android:id="@+id/btnReg"
                 android:layout_width="match_parent"
                 android:layout_marginTop="44dp"
                 android:background="@drawable/bg_purple_100dp"
-                android:text="Войти"
+                android:text="Зарегистрироваться"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="17sp"
                 android:focusable="true"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"

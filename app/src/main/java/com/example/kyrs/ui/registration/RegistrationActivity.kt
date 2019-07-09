@@ -11,6 +11,7 @@ import com.example.kyrs.di.Scopes
 import com.example.kyrs.presentation.registration.RegistrationPresenter
 import com.example.kyrs.presentation.registration.RegistrationView
 import com.example.kyrs.ui.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_registration.*
 import kotlinx.android.synthetic.main.toolbar_back.*
 import toothpick.Toothpick
 
@@ -47,6 +48,10 @@ class RegistrationActivity : BaseActivity(), RegistrationView {
         super.onCreate(savedInstanceState)
 
         backButton.setOnClickListener { presenter.onBackCliecked() }
+
+        btnReg.setOnClickListener {
+            presenter.onRegistrationBtnClicked(etLogin.text.toString(), etPassword.text.toString())
+        }
     }
 
     override fun back() {

@@ -25,4 +25,7 @@ interface HelloMateApi {
 
     @POST("/rest/login")
     fun login(@Body loginRequest: LoginRequest): Single<LoginResponse>
+
+    @POST("/rest/register")
+    fun register(@Body loginRequest: LoginRequest): Single<LoginResponse>
 }

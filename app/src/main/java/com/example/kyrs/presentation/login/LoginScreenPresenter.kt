@@ -29,7 +29,7 @@ class LoginScreenPresenter @Inject constructor(
             }).connect()
     }
 
-    fun onRegistrateCliecked() {
+    fun onRegisterClicked() {
         viewState.openRegistrationActivity()
     }
 }

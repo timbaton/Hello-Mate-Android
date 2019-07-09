@@ -22,4 +22,12 @@ class RegistrationPresenter @Inject constructor(
     fun onBackCliecked() {
         viewState.back()
     }
+
+    fun onRegistrationBtnClicked(login: String, password: String) {
+        authRepository.register(login, password).subscribe({
+            authRepository.saveAuthData(it.userId, it.token)
+        }, {
+            viewState.showMessage("something is wrong")
+        }).connect()
+    }
 }

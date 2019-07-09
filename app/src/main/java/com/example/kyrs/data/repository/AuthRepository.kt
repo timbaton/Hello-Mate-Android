@@ -26,6 +26,7 @@ class AuthRepository @Inject constructor(
 ) {
 
     fun login(login: String, password: String): Single<LoginResponse> {
+
         val loginRequestBody = LoginRequest(login, password)
         return api.login(loginRequestBody)
             .subscribeOn(Schedulers.io())
@@ -35,5 +36,13 @@ class AuthRepository @Inject constructor(
     fun saveAuthData(id: Int, token: String) {
         authHolder.userId = id
         authHolder.token = token
+    }
+
+    fun register(login: String, password: String): Single<LoginResponse> {
+
+        val loginRequestBody = LoginRequest(login, password)
+        return api.register(loginRequestBody)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
     }
 }

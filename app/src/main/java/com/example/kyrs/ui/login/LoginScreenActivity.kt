@@ -47,7 +47,7 @@ class LoginScreenActivity : BaseActivity(), LoginScreenView {
 
         btnEnter.setOnClickListener { presenter.onLoginClicked(etLogin.text.toString(), etPassword.text.toString()) }
 
-        btnNewUser.setOnClickListener { presenter.onRegistrateCliecked() }
+        btnNewUser.setOnClickListener { presenter.onRegisterClicked() }
     }
 
     override fun openRegistrationActivity() {
