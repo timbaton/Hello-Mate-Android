@@ -62,7 +62,7 @@
                 android:textColorHint="@color/white_70"
                 android:hint="password"
                 android:textStyle="bold"
-                android:text="q"
+                android:text="a"
                 android:id="@+id/etPassword"/>
     </android.support.design.widget.TextInputLayout>
 

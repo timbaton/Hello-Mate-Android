@@ -3,7 +3,6 @@ package com.example.kyrs.ui.registration
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.kyrs.R
@@ -11,6 +10,7 @@ import com.example.kyrs.di.Scopes
 import com.example.kyrs.presentation.registration.RegistrationPresenter
 import com.example.kyrs.presentation.registration.RegistrationView
 import com.example.kyrs.ui.base.BaseActivity
+import com.example.kyrs.ui.main.MainContainerActivity
 import kotlinx.android.synthetic.main.activity_registration.*
 import kotlinx.android.synthetic.main.toolbar_back.*
 import toothpick.Toothpick
@@ -56,5 +56,10 @@ class RegistrationActivity : BaseActivity(), RegistrationView {
 
     override fun back() {
         finish()
+    }
+
+    override fun openMainScreen() {
+        val intent = MainContainerActivity.getIntent(this)
+        startActivity(intent)
     }
 }

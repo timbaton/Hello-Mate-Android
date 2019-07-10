@@ -24,6 +24,7 @@ class LoginScreenPresenter @Inject constructor(
         authRepository.login(login, password)
             .subscribe({
                 authRepository.saveAuthData(it.userId, it.token)
+                viewState.openMainScreen()
             }, {
                 viewState.showMessage("something is wrong")
             }).connect()

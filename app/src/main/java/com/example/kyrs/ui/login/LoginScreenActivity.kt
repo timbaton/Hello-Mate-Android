@@ -10,6 +10,7 @@ import com.example.kyrs.di.Scopes
 import com.example.kyrs.ui.base.BaseActivity
 import com.example.kyrs.presentation.login.LoginScreenPresenter
 import com.example.kyrs.presentation.login.LoginScreenView
+import com.example.kyrs.ui.main.MainContainerActivity
 import com.example.kyrs.ui.registration.RegistrationActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import toothpick.Toothpick
@@ -52,6 +53,11 @@ class LoginScreenActivity : BaseActivity(), LoginScreenView {
 
     override fun openRegistrationActivity() {
         val intent = RegistrationActivity.getIntent(this)
+        startActivity(intent)
+    }
+
+    override fun openMainScreen() {
+        val intent = MainContainerActivity.getIntent(this)
         startActivity(intent)
     }
 }

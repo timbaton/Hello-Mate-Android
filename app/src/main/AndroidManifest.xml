@@ -13,7 +13,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".ui.login.LoginScreenActivity" android:theme="@style/NoStatusBar"/>
+        <activity android:name=".ui.login.LoginScreenActivity"
+                  android:theme="@style/NoStatusBar"/>
 
         <activity android:name=".ui.splash.SplashScreenActivity"
                   android:theme="@style/SplashTheme">
@@ -23,7 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.registration.RegistrationActivity"/>
+        <activity android:name=".ui.registration.RegistrationActivity"
+                  android:theme="@style/NoStatusBar"/>
+        <activity android:name=".ui.main.MainContainerActivity"/>
     </application>
 
 </manifest>

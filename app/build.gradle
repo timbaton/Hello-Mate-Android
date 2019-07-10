@@ -51,7 +51,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
 
-
 //    moxy
     implementation 'com.arello-mobile:moxy-app-compat:1.5.5'
     kapt 'com.arello-mobile:moxy-compiler:1.5.5'
@@ -70,6 +69,10 @@ dependencies {
 
     // Gson
     implementation 'com.google.code.gson:gson:2.8.5'
+
+    //Cicerone
+    compile 'ru.terrakok.cicerone:cicerone:3.0.0'
+//    implementation 'com.google.android.material:material:1.0.0'
 //    implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
 //    implementation 'com.jakewharton.rxrelay2:rxrelay:2.1.0'
 //    implementation 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
