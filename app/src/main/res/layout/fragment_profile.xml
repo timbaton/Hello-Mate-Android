@@ -1,13 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:background="@color/background_light"
         android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="profile"/>
+            android:orientation="vertical"
+            android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@color/dark_toolbar"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:id="@+id/ivAvatar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_plans_24dp_non_active"
+                    />
+
+            <TextView
+                    android:id="@+id/tvName"
+                    android:gravity="center"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="52dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:textColor="@color/white"
+                    android:text="Oлег Валерьевич"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_marginTop="-30dp"
+                android:background="@drawable/bg_clickable_white_8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_width="match_parent"
+                    android:background="@color/white"
+                    android:layout_height="wrap_content">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_gray"
+                            android:text="Почта"
+                            android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:id="@+id/tvMail"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/black"
+                            android:layout_marginEnd="16sp"
+                            android:text="mail@gmail.ru"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:background="@color/white"
+                    android:layout_height="wrap_content">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_gray"
+                            android:text="Телефон"
+                            android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:id="@+id/tvPhone"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_marginEnd="16sp"
+                            android:text="mail@gmail.ru"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_width="match_parent"
+                    android:background="@color/white"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/text_gray"
+                            android:layout_weight="1"
+                            android:text="Интересы"
+                            android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_marginEnd="16sp"
+                            android:text="mail@gmail.ru"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_width="match_parent"
+                    android:background="@color/white"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_height="wrap_content">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_gray"
+                            android:text="Возарст"
+                            android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:gravity="right"
+                            android:layout_width="wrap_content"
+                            android:layout_marginEnd="16sp"
+                            android:textColor="@color/black"
+                            android:text="mail@gmail.ru"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:layout_marginTop="34dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:elevation="24dp"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:text="Редактировать профиль"
+                    android:paddingBottom="14dp"
+                    android:paddingTop="14dp"
+                    android:background="@drawable/bg_clickable_white_8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:textSize="16sp"
+                    android:paddingStart="16sp"
+                    android:textColor="@color/black"
+                    android:paddingEnd="16sp"
+                    android:drawableEnd="@drawable/ic_arrow_right_gray_24dp"
+                    android:layout_height="wrap_content"/>
+
+            <include layout="@layout/separate_horizontal_gray"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:text="Выйти"
+                    android:paddingBottom="14dp"
+                    android:paddingTop="14dp"
+                    android:background="@drawable/bg_clickable_white_8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:textSize="16sp"
+                    android:paddingStart="16sp"
+                    android:textColor="@color/black"
+                    android:paddingEnd="16sp"
+                    android:drawableEnd="@drawable/ic_arrow_right_gray_24dp"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

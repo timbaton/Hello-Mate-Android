@@ -4,7 +4,6 @@ import com.example.kyrs.data.entity.request.LoginRequest
 import com.example.kyrs.data.entity.response.LoginResponse
 import com.example.kyrs.data.network.HelloMateApi
 import com.example.kyrs.data.sharedPref.AuthHolder
-import com.example.kyrs.di.ServerPath
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -21,7 +20,6 @@ import javax.inject.Inject
  */
 class AuthRepository @Inject constructor(
     private var api: HelloMateApi,
-    @ServerPath private var string: String,
     private val authHolder: AuthHolder
 ) {
 

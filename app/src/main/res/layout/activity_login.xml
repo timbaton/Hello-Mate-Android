@@ -43,7 +43,7 @@
                 android:textStyle="bold"
                 android:textColorHint="@color/white_70"
                 android:hint="login"
-                android:text="Kama"/>
+                android:text="Tim"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -62,7 +62,7 @@
                 android:textColorHint="@color/white_70"
                 android:hint="password"
                 android:textStyle="bold"
-                android:text="a"
+                android:text="qwe"
                 android:id="@+id/etPassword"/>
     </android.support.design.widget.TextInputLayout>
 
@@ -70,28 +70,26 @@
             android:id="@+id/btnEnter"
             android:layout_width="match_parent"
             android:layout_marginTop="44dp"
-            android:background="@drawable/bg_purple_100dp"
+            android:background="@drawable/bg_clickable_purple_100dp"
             android:text="Войти"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:focusable="true"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
             android:layout_height="wrap_content"/>
 
     <Button
             android:id="@+id/btnNewUser"
             android:layout_width="match_parent"
             android:layout_marginTop="12dp"
-            android:background="@drawable/bg_transparent_bordered_100dp"
+            android:background="@drawable/bg_clickable_transparent_bordered_100dp"
             android:text="Я новый пользователь"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:focusable="true"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
             android:layout_height="wrap_content"/>
 
     <Space android:layout_width="wrap_content" android:layout_height="0dp" android:layout_weight="1"/>

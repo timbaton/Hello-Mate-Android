@@ -32,6 +32,11 @@ class OkHttpClientProvider @Inject constructor() : Provider<OkHttpClient> {
             })
             addNetworkInterceptor(CurlLoggingInterceptor())
         }
+
+        addInterceptor {
+            val request = it.request().newBuilder().addHeader("Content-Type", "application/json").build()
+            it.proceed(request)
+        }
         build()
     }
 }
