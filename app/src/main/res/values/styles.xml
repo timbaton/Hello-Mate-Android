@@ -21,4 +21,9 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:statusBarColor">#FF000000</item>
     </style>
+
+    <style name="titleTextSize" parent="@style/Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">34sp</item>
+    </style>
+
 </resources>

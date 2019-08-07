@@ -22,6 +22,7 @@ class OkHttpClientProvider @Inject constructor() : Provider<OkHttpClient> {
     private val connectionTimeout = 30L
     private val readTimeout = 30L
 
+
     override fun get(): OkHttpClient = with(OkHttpClient.Builder()) {
         connectTimeout(connectionTimeout, TimeUnit.SECONDS)
         readTimeout(readTimeout, TimeUnit.SECONDS)
