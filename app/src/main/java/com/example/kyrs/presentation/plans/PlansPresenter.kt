@@ -1,7 +1,9 @@
 package com.example.kyrs.presentation.plans
 
 import com.arellomobile.mvp.InjectViewState
+import com.example.kyrs.data.repository.EventRepository
 import com.example.kyrs.presentation.base.BasePresenter
+import javax.inject.Inject
 
 /**
  * Project HelloMate
@@ -13,6 +15,22 @@ import com.example.kyrs.presentation.base.BasePresenter
  * Copyright © 2018 SuperEgo. All rights reserved.
  */
 @InjectViewState
-class PlansPresenter : BasePresenter<PlansView>() {
+class PlansPresenter @Inject constructor(
+    private val eventRepository: EventRepository
+): BasePresenter<PlansView>() {
 
+    override fun onFirstViewAttach() {
+        super.onFirstViewAttach()
+
+        loadPlans()
+    }
+
+    private fun loadPlans() {
+        eventRepository.getUsersEvents()
+            .subscribe({
+                viewState.showEvents(it)
+            },{
+                viewState.showMessage(it.message.toString())
+            }).connect()
+    }
 }

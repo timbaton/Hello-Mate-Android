@@ -18,7 +18,7 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField('String', 'API_URL', '"http://192.168.1.53:8080/"')
+            buildConfigField('String', 'API_URL', '"http://192.168.1.4:8080/"')
         }
 
         release {
@@ -71,7 +71,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     //Cicerone
-    compile 'ru.terrakok.cicerone:cicerone:3.0.0'
+    implementation 'ru.terrakok.cicerone:cicerone:3.0.0'
 //    implementation 'com.google.android.material:material:1.0.0'
 //    implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
 //    implementation 'com.jakewharton.rxrelay2:rxrelay:2.1.0'

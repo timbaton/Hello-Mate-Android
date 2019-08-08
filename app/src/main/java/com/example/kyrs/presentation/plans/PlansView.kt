@@ -1,5 +1,6 @@
 package com.example.kyrs.presentation.plans
 
+import com.example.kyrs.data.entity.Event
 import com.example.kyrs.presentation.base.BaseView
 
 /**
@@ -13,4 +14,5 @@ import com.example.kyrs.presentation.base.BaseView
  */
 interface PlansView : BaseView {
 
+    fun showEvents(events: List<Event>?)
 }

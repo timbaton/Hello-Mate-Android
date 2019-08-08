@@ -1,5 +1,6 @@
 package com.example.kyrs.data.network
 
+import com.example.kyrs.data.entity.Event
 import com.example.kyrs.data.entity.request.LoginRequest
 import com.example.kyrs.data.entity.response.LoginResponse
 import com.example.kyrs.data.entity.response.ProfileResponse
@@ -33,4 +34,8 @@ interface HelloMateApi {
 
     @POST("/rest/register")
     fun register(@Body loginRequest: LoginRequest): Single<LoginResponse>
+
+
+    @GET("/rest/event")
+    fun getUserEvents(@Query(value = "user_id") id: Int): Single<List<Event>>
 }

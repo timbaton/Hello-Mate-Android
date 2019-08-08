@@ -22,9 +22,10 @@
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvList"
             android:layout_width="match_parent"
             android:layout_weight="1"
-            tools:listitem="@layout/item_activity"
+            tools:listitem="@layout/item_event"
             android:layout_height="0dp">
 
     </android.support.v7.widget.RecyclerView>
