@@ -1,8 +1,8 @@
 package com.example.kyrs.presentation.profile
 
 import com.arellomobile.mvp.InjectViewState
-import com.example.kyrs.data.network.HelloMateApi
 import com.example.kyrs.data.repository.ProfileRepository
+import com.example.kyrs.di.ServerPath
 import com.example.kyrs.presentation.base.BasePresenter
 import javax.inject.Inject
 
@@ -17,8 +17,8 @@ import javax.inject.Inject
  */
 @InjectViewState
 class ProfilePresenter @Inject constructor(
-    private var profileRepository: ProfileRepository
-
+    private var profileRepository: ProfileRepository,
+    @ServerPath private var serverPath: String
 ): BasePresenter<ProfileView>() {
 
     override fun onFirstViewAttach() {
@@ -30,7 +30,7 @@ class ProfilePresenter @Inject constructor(
     private fun loadProfile() {
         profileRepository.loadProfile()
             .subscribe({
-                viewState.fillProfileData(it)
+                viewState.fillProfileData(it, serverPath)
             },{
                 viewState.showMessage(it.message.toString())
             }).connect()

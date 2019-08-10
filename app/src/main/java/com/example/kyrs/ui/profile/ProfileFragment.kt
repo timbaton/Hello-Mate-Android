@@ -2,6 +2,8 @@ package com.example.kyrs.ui.plans
 
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.example.kyrs.R
 import com.example.kyrs.data.entity.response.ProfileResponse
 import com.example.kyrs.di.Scopes
@@ -20,7 +22,7 @@ import toothpick.Toothpick
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-07-10
  * Copyright © 2018 SuperEgo. All rights reserved.
  */
-class ProfileFragment : BaseFragment(), ProfileView{
+class ProfileFragment : BaseFragment(), ProfileView {
 
     override val layoutRes: Int = R.layout.fragment_profile
 
@@ -33,9 +35,15 @@ class ProfileFragment : BaseFragment(), ProfileView{
             .getInstance(ProfilePresenter::class.java)
     }
 
-    override fun fillProfileData(data: ProfileResponse?) {
+    override fun fillProfileData(data: ProfileResponse?, serverPath: String) {
         tvName.text = data?.name + " " + data?.surname
         tvMail.text = data?.mail
         tvPhone.text = data?.phone
+
+        val url = if (data?.avatar != null) "$serverPath/uploads/${data.avatar.path}" else null
+        Glide.with(this)
+            .load(url)
+            .transform(CircleCrop())
+            .into(ivAvatar)
     }
 }

@@ -35,7 +35,9 @@ interface HelloMateApi {
     @POST("/rest/register")
     fun register(@Body loginRequest: LoginRequest): Single<LoginResponse>
 
-
     @GET("/rest/event")
     fun getUserEvents(@Query(value = "user_id") id: Int): Single<List<Event>>
+
+    @GET("/rest/event")
+    fun getAllEvents(@Query(value = "isFuture") isFuture: Boolean): Single<List<Event>>
 }

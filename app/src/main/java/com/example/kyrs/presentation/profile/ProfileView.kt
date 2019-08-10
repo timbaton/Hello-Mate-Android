@@ -14,6 +14,6 @@ import com.example.kyrs.presentation.base.BaseView
  */
 interface ProfileView : BaseView {
 
-    fun fillProfileData(data: ProfileResponse?)
+    fun fillProfileData(data: ProfileResponse?, serverPath: String)
 
 }

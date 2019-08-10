@@ -17,4 +17,10 @@ class EventRepository @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
+
+    fun getFutureEvents(): Single<List<Event>> {
+        return api.getAllEvents(true)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
 }

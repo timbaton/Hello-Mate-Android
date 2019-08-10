@@ -15,7 +15,7 @@
             android:paddingTop="16dp"
             android:background="@color/dark_toolbar"
             app:title="Планы"
-            app:titleTextAppearance="@style/titleTextSize"
+            app:titleTextAppearance="@style/MyTitleTextAppearance"
             app:titleTextColor="@color/white"
             >
 
