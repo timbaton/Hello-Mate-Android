@@ -4,6 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:id="@+id/root"
         android:background="@drawable/bg_clickable_white_16dp"
         android:clickable="true"
         android:focusable="true"

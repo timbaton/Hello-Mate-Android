@@ -15,4 +15,6 @@ import com.example.kyrs.presentation.base.BaseView
 interface PlansView : BaseView {
 
     fun showEvents(events: List<Event>?)
+
+    fun openEventActivity()
 }

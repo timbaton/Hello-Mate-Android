@@ -4,7 +4,6 @@ import android.view.View
 import com.example.kyrs.data.entity.Event
 import com.example.kyrs.presentation.base.BaseListViewHolder
 import kotlinx.android.synthetic.main.item_event.view.*
-import java.sql.Timestamp
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -26,14 +25,11 @@ class EventsViewHolder(itemView: View) : BaseListViewHolder<Event>(itemView) {
     override fun bind(item: Event) {
         itemView.tvDescription.text = item.description
 
-        val time = getTime(item)
-        itemView.tvTime.text = time
+        itemView.tvTime.text = getTime(item)
     }
 
     private fun getTime(item: Event): String {
 
-//        val timestamp = Timestamp.valueOf(item.date)
-//
         var dateString = item.date
         var date: Date? = null
         val dateFromString = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S")
@@ -41,9 +37,7 @@ class EventsViewHolder(itemView: View) : BaseListViewHolder<Event>(itemView) {
         dateFromString.setLenient(false)
         try {
             date = dateFromString.parse(dateString)
-            System.out.println(date)
         } catch (e: ParseException) {
-            // TODO Auto-generated catch block
             e.printStackTrace()
         }
 
@@ -55,7 +49,7 @@ class EventsViewHolder(itemView: View) : BaseListViewHolder<Event>(itemView) {
         val res = abs(date1 - date2) / 1000
 
         // get total days between two dates
-        with(floor((res / 86400).toDouble())){
+        with(floor((res / 86400).toDouble())) {
             if (this > 0) {
                 dateString = "$this days"
                 return dateString

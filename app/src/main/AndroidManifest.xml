@@ -27,6 +27,7 @@
         <activity android:name=".ui.registration.RegistrationActivity"
                   android:theme="@style/NoStatusBar"/>
         <activity android:name=".ui.main.MainContainerActivity"/>
+        <activity android:name=".ui.event.EventActivity"/>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.example.kyrs.presentation.search
 
 import com.arellomobile.mvp.InjectViewState
+import com.example.kyrs.data.entity.Event
 import com.example.kyrs.data.repository.EventRepository
 import com.example.kyrs.presentation.base.BasePresenter
 import javax.inject.Inject
@@ -32,5 +33,9 @@ class SearchPresenter @Inject constructor(
             },{
 
             }).connect()
+    }
+
+    fun onEventClicked(event: Event) {
+        viewState.openEventActivity()
     }
 }

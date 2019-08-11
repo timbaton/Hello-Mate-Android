@@ -13,6 +13,7 @@ import com.example.kyrs.di.Scopes
 import com.example.kyrs.presentation.search.SearchPresenter
 import com.example.kyrs.presentation.search.SearchView
 import com.example.kyrs.ui.base.BaseFragment
+import com.example.kyrs.ui.event.EventActivity
 import kotlinx.android.synthetic.main.fragment_plans.*
 import toothpick.Toothpick
 
@@ -44,7 +45,9 @@ class SearchFragment : BaseFragment(), SearchView {
     }
 
     override fun showEvents(events: List<Event>) {
-        val adapter = EventListAdapter()
+        val adapter = EventListAdapter { event ->
+            presenter.onEventClicked(event)
+        }
         rvList.adapter = adapter
         rvList.layoutManager = LinearLayoutManager(context)
 
@@ -53,5 +56,9 @@ class SearchFragment : BaseFragment(), SearchView {
         } else {
             showMessage("list is empty")
         }
+    }
+
+    override fun openEventActivity() {
+        startActivity(EventActivity.getIntent(context!!))
     }
 }

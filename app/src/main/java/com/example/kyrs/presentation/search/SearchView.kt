@@ -14,6 +14,8 @@ import com.example.kyrs.presentation.base.BaseView
  */
 interface SearchView : BaseView {
 
-    fun showEvents(it: List<Event>)
+    fun showEvents(events: List<Event>)
+
+    fun openEventActivity()
 
 }
