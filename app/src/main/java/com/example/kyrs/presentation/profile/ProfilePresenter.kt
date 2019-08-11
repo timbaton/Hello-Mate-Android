@@ -21,14 +21,16 @@ class ProfilePresenter @Inject constructor(
     @ServerPath private var serverPath: String
 ): BasePresenter<ProfileView>() {
 
+    var userId = 0
+
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
 
-        loadProfile()
+        loadProfile(userId)
     }
 
-    private fun loadProfile() {
-        profileRepository.loadProfile()
+    private fun loadProfile(userId: Int) {
+        profileRepository.loadProfile(userId)
             .subscribe({
                 viewState.fillProfileData(it, serverPath)
             },{

@@ -27,6 +27,6 @@ class EventPresenter @Inject constructor(
     }
 
     fun onParticipantClicked(user_id: Int) {
-        viewState.showMessage(user_id.toString())
+        viewState.openProfile(user_id)
     }
 }

@@ -16,4 +16,5 @@ interface EventView : BaseView {
 
     fun showEvent(event: Event, imagePath: String)
 
+    fun openProfile(userId: Int)
 }

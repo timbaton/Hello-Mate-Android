@@ -13,8 +13,9 @@ class ProfileRepository @Inject constructor(
     private val authHolder: AuthHolder
 ) {
 
-    fun loadProfile(): Single<ProfileResponse> {
-        return api.getProfile(authHolder.userId)
+    fun loadProfile(userId: Int): Single<ProfileResponse> {
+        val id = if (userId == 0) authHolder.userId else userId
+        return api.getProfile(id)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
