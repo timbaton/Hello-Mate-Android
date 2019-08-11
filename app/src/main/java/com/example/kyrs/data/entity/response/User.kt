@@ -1,5 +1,6 @@
 package com.example.kyrs.data.entity.response
 
+import com.example.kyrs.data.entity.Image
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
@@ -15,10 +16,10 @@ import com.google.gson.annotations.SerializedName
 data class User(
     var id: Int,
     var name: String,
-    var sirname: String,
+    var surname: String,
     var login : String,
     var password : String,
-    var sername : String,
+    var avatar : Image,
     var mail : String,
     var phone : String,
     var hobbies : String,

@@ -14,6 +14,7 @@ import com.example.kyrs.presentation.search.SearchPresenter
 import com.example.kyrs.presentation.search.SearchView
 import com.example.kyrs.ui.base.BaseFragment
 import com.example.kyrs.ui.event.EventActivity
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_plans.*
 import toothpick.Toothpick
 
@@ -58,7 +59,8 @@ class SearchFragment : BaseFragment(), SearchView {
         }
     }
 
-    override fun openEventActivity() {
-        startActivity(EventActivity.getIntent(context!!))
+    override fun openEventActivity(event: Event) {
+        val eventGson = Gson().toJson(event)
+        startActivity(EventActivity.getIntent(context!!, eventGson))
     }
 }

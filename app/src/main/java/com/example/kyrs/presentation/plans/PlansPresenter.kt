@@ -36,6 +36,6 @@ class PlansPresenter @Inject constructor(
     }
 
     fun onEventClicked(event: Event) {
-        viewState.openEventActivity()
+        viewState.openEventActivity(event)
     }
 }

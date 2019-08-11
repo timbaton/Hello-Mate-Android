@@ -2,10 +2,7 @@ package com.example.kyrs.ui.plans
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.BaseAdapter
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.kyrs.R
@@ -17,6 +14,8 @@ import com.example.kyrs.ui.base.BaseFragment
 import com.example.kyrs.ui.event.EventActivity
 import kotlinx.android.synthetic.main.fragment_plans.*
 import toothpick.Toothpick
+import com.google.gson.Gson
+
 
 /**
  * Project HelloMate
@@ -65,7 +64,8 @@ class PlansFragment : BaseFragment(), PlansView {
         }
     }
 
-    override fun openEventActivity() {
-        startActivity(EventActivity.getIntent(context!!))
+    override fun openEventActivity(event: Event) {
+        val event = Gson().toJson(event)
+        startActivity(EventActivity.getIntent(context!!, event))
     }
 }

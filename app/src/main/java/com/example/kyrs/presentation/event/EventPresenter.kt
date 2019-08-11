@@ -1,6 +1,8 @@
 package com.example.kyrs.presentation.event
 
 import com.arellomobile.mvp.InjectViewState
+import com.example.kyrs.data.entity.Event
+import com.example.kyrs.di.ImagePath
 import com.example.kyrs.presentation.base.BasePresenter
 import javax.inject.Inject
 
@@ -15,7 +17,16 @@ import javax.inject.Inject
  */
 @InjectViewState
 class EventPresenter @Inject constructor(
-
+    @ImagePath private var imagePath: String
 ): BasePresenter<EventView>() {
 
+    lateinit var event: Event
+
+    override fun onFirstViewAttach() {
+        viewState.showEvent(event, imagePath)
+    }
+
+    fun onParticipantClicked(user_id: Int) {
+        viewState.showMessage(user_id.toString())
+    }
 }

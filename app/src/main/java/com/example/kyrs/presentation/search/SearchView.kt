@@ -16,6 +16,6 @@ interface SearchView : BaseView {
 
     fun showEvents(events: List<Event>)
 
-    fun openEventActivity()
+    fun openEventActivity(event: Event)
 
 }

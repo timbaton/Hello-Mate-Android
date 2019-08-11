@@ -19,6 +19,7 @@ android {
     buildTypes {
         debug {
             buildConfigField('String', 'API_URL', '"http://' + InetAddress.getLocalHost().getHostAddress() + ':8080"')
+            buildConfigField('String', 'IMAGE_URL', '"http://' + InetAddress.getLocalHost().getHostAddress() + ':8080/uploads/"')
         }
 
         release {
