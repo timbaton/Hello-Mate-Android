@@ -3,10 +3,8 @@ package com.example.kyrs.ui.plans
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -17,10 +15,10 @@ import com.example.kyrs.presentation.plans.PlansPresenter
 import com.example.kyrs.presentation.plans.PlansView
 import com.example.kyrs.ui.base.BaseFragment
 import com.example.kyrs.ui.event.EventActivity
+import com.example.kyrs.ui.new_event.NewEventActivity
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_plans.*
 import toothpick.Toothpick
-
 
 /**
  * Project HelloMate
@@ -60,18 +58,19 @@ class PlansFragment : BaseFragment(), PlansView {
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         inflater?.inflate(R.menu.menu_new_event, menu)
 
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_user -> {
-                Log.i("item id ", item.itemId.toString() + "")
-                presenter.onAddButtonClicked()
-                return super.onOptionsItemSelected(item)
+        for (i in 0 until menu!!.size()) {
+            val item = menu.getItem(i)
+            if (item.itemId == R.id.menu_add) {
+                val button = item.actionView
+                if (button != null) {
+                    button.setOnClickListener {
+                        presenter.onAddButtonClicked()
+                    }
+                }
             }
-            else -> return super.onOptionsItemSelected(item)
         }
+
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     private fun initList() {
@@ -106,7 +105,11 @@ class PlansFragment : BaseFragment(), PlansView {
     }
 
     override fun openEventActivity(event: Event) {
-        val event = Gson().toJson(event)
-        startActivity(EventActivity.getIntent(context!!, event))
+        val eventGson = Gson().toJson(event)
+        startActivity(EventActivity.getIntent(context!!, eventGson))
+    }
+
+    override fun openNewEventActivity() {
+        startActivity(NewEventActivity.getIntent(context!!))
     }
 }

@@ -29,6 +29,7 @@
         <activity android:name=".ui.main.MainContainerActivity"/>
         <activity android:name=".ui.event.EventActivity"/>
         <activity android:name=".ui.plans.ProfileActivity"/>
+        <activity android:name=".ui.new_event.NewEventActivity"/>
     </application>
 
 </manifest>
