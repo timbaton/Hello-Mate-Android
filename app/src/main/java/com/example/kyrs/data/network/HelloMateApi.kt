@@ -43,4 +43,7 @@ interface HelloMateApi {
 
     @POST("/rest/event_register")
     fun eventRegister(@Query(value = "event_id") event_id: Int, @Query(value = "user_id") user_id: Int): Single<Event>
+
+    @POST("/rest/event_unsubscribe")
+    fun eventUnsubscribe(@Query(value = "event_id") event_id: Int, @Query(value = "user_id") user_id: Int): Single<Event>
 }

@@ -31,6 +31,8 @@ class SearchFragment : BaseFragment(), SearchView {
 
     override val layoutRes: Int = R.layout.fragment_search
 
+    lateinit var adapter: EventListAdapter
+
     @InjectPresenter
     lateinit var presenter: SearchPresenter
 
@@ -40,23 +42,53 @@ class SearchFragment : BaseFragment(), SearchView {
             .getProvider(SearchPresenter::class.java).get()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        return super.onCreateView(inflater, container, savedInstanceState)
+        initList()
+
+        swipeRefresh.setOnRefreshListener {
+            presenter.onRefreshCalled()
+        }
     }
 
-    override fun showEvents(events: List<Event>) {
-        val adapter = EventListAdapter { event ->
+    private fun initList() {
+        adapter = EventListAdapter { event ->
             presenter.onEventClicked(event)
         }
-        rvList.adapter = adapter
-        rvList.layoutManager = LinearLayoutManager(context)
 
-        if (events.isNotEmpty()) {
+        rvList.setHasFixedSize(true)
+        rvList.layoutManager = LinearLayoutManager(context)
+        rvList.adapter = adapter
+
+    }
+
+    override fun showEvents(events: List<Event>?) {
+        if (events?.isNotEmpty()!!) {
             adapter.addList(events)
         } else {
-            showMessage("list is empty")
+            tvState.text = "list is empty"
         }
+    }
+
+    override fun updateEvents(events: List<Event>?) {
+        if (events?.isNotEmpty()!!) {
+            adapter.updateList(events)
+        } else {
+            tvState.text = "list is empty"
+        }
+    }
+
+    override fun hideLoader() {
+        swipeRefresh.isRefreshing = false
+    }
+
+    override fun showProgressBar() {
+        progressBar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        progressBar.visibility = View.GONE
     }
 
     override fun openEventActivity(event: Event) {

@@ -20,7 +20,6 @@ import toothpick.Toothpick
 import android.os.Bundle
 import android.view.View
 import com.example.kyrs.ui.plans.ProfileActivity
-import com.example.kyrs.ui.plans.ProfileFragment
 
 
 /**
@@ -108,6 +107,22 @@ class EventActivity : BaseActivity(), EventView {
                 imageView.view.setOnClickListener { presenter.onParticipantClicked(user.id) }
                 listParticipants.addView(imageView.view)
             }
+        }
+    }
+
+    override fun setButtonUnregister() {
+        btnRegister.text = "Отписаться"
+
+        btnRegister.setOnClickListener {
+            presenter.onUnsubscribeClicked()
+        }
+    }
+
+    override fun setButtonRegister() {
+        btnRegister.text = "Учавствовать!"
+
+        btnRegister.setOnClickListener {
+            presenter.onRegisterClicked()
         }
     }
 

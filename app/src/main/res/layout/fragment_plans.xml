@@ -24,7 +24,6 @@
             android:id="@+id/swipeRefresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="8dp"
             android:orientation="vertical">
 
         <FrameLayout
@@ -35,7 +34,9 @@
                     android:id="@+id/rvList"
                     android:layout_width="match_parent"
                     tools:listitem="@layout/item_event"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingTop="14dp"/>
 
             <ProgressBar
                     android:id="@+id/progressBar"

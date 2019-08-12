@@ -3,6 +3,7 @@ package com.example.kyrs.presentation.event
 import com.arellomobile.mvp.InjectViewState
 import com.example.kyrs.data.entity.Event
 import com.example.kyrs.data.repository.EventRepository
+import com.example.kyrs.data.sharedPref.AuthHolder
 import com.example.kyrs.di.ImagePath
 import com.example.kyrs.presentation.base.BasePresenter
 import javax.inject.Inject
@@ -19,13 +20,26 @@ import javax.inject.Inject
 @InjectViewState
 class EventPresenter @Inject constructor(
     @ImagePath private var imagePath: String,
-    private var eventRepository: EventRepository
+    private var eventRepository: EventRepository,
+    private var authHolder: AuthHolder
 ) : BasePresenter<EventView>() {
 
     lateinit var event: Event
 
     override fun onFirstViewAttach() {
         viewState.showEvent(event, imagePath)
+
+        var isRegistered = false
+
+        event.participants.forEach {
+            if (it.id == authHolder.userId) {
+                isRegistered = true
+            }
+        }
+
+        if (isRegistered) {
+            viewState.setButtonUnregister()
+        }
     }
 
     fun onParticipantClicked(user_id: Int) {
@@ -36,7 +50,19 @@ class EventPresenter @Inject constructor(
         eventRepository.register(event.id.toInt())
             .subscribe({
                 viewState.showMessage("Success!")
-            },{
+            }, {
+                viewState.showMessage(it.message.toString())
+            }).connect()
+    }
+
+    fun onUnsubscribeClicked() {
+        eventRepository.unsubscribe(event.id.toInt())
+            .doAfterTerminate {
+                viewState.setButtonRegister()
+            }
+            .subscribe({
+                viewState.showMessage("Success!")
+            }, {
                 viewState.showMessage(it.message.toString())
             }).connect()
     }

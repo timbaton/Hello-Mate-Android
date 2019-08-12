@@ -14,8 +14,12 @@ import com.example.kyrs.presentation.base.BaseView
  */
 interface SearchView : BaseView {
 
-    fun showEvents(events: List<Event>)
+    fun showEvents(events: List<Event>?)
+    fun updateEvents(events: List<Event>?)
 
     fun openEventActivity(event: Event)
 
+    fun hideLoader()
+    fun showProgressBar()
+    fun hideProgressBar()
 }

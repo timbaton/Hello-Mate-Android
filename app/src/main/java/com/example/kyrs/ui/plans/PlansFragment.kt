@@ -44,6 +44,7 @@ class PlansFragment : BaseFragment(), PlansView {
         super.onViewCreated(view, savedInstanceState)
 
         initList()
+
         swipeRefresh.setOnRefreshListener {
             presenter.onRefreshCalled()
         }

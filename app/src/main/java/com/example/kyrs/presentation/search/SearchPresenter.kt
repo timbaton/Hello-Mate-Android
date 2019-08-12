@@ -28,14 +28,32 @@ class SearchPresenter @Inject constructor(
 
     private fun loadFutureEvents() {
         eventRepository.getFutureEvents()
+            .doOnSubscribe {
+                viewState.showProgressBar()
+            }
+            .doAfterTerminate {
+                viewState.hideProgressBar()
+            }
             .subscribe({
                 viewState.showEvents(it)
             },{
-
+                viewState.showMessage(it.message.toString())
             }).connect()
     }
 
     fun onEventClicked(event: Event) {
         viewState.openEventActivity(event)
+    }
+
+    fun onRefreshCalled() {
+        eventRepository.getFutureEvents()
+            .doAfterTerminate {
+                viewState.hideLoader()
+            }
+            .subscribe({
+                viewState.updateEvents(it)
+            },{
+                viewState.showMessage(it.message.toString())
+            }).connect()
     }
 }

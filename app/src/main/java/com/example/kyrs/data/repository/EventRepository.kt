@@ -29,4 +29,10 @@ class EventRepository @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
+
+    fun unsubscribe(id: Int): Single<Event> {
+        return api.eventUnsubscribe(id, authHolder.userId)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
 }
