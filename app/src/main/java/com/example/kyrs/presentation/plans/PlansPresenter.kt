@@ -38,4 +38,16 @@ class PlansPresenter @Inject constructor(
     fun onEventClicked(event: Event) {
         viewState.openEventActivity(event)
     }
+
+    fun onRefreshCalled() {
+        eventRepository.getUsersEvents()
+            .doAfterTerminate {
+                viewState.hideLoader()
+            }
+            .subscribe({
+                viewState.updateEvents(it)
+            },{
+                viewState.showMessage(it.message.toString())
+            }).connect()
+    }
 }

@@ -44,6 +44,9 @@ class PlansFragment : BaseFragment(), PlansView {
         super.onViewCreated(view, savedInstanceState)
 
         initList()
+        swipeRefresh.setOnRefreshListener {
+            presenter.onRefreshCalled()
+        }
     }
     private fun initList() {
         adapter = EventListAdapter { event ->
@@ -60,8 +63,20 @@ class PlansFragment : BaseFragment(), PlansView {
         if (events?.isNotEmpty()!!) {
             adapter.addList(events)
         } else {
-            showMessage("list is empty")
+            tvState.text = "list is empty"
         }
+    }
+
+    override fun updateEvents(events: List<Event>?) {
+        if (events?.isNotEmpty()!!) {
+            adapter.updateList(events)
+        } else {
+            tvState.text = "list is empty"
+        }
+    }
+
+    override fun hideLoader() {
+        swipeRefresh.isRefreshing = false
     }
 
     override fun openEventActivity(event: Event) {
