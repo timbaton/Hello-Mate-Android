@@ -18,6 +18,7 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_event.*
 import toothpick.Toothpick
 import android.os.Bundle
+import android.view.View
 import com.example.kyrs.ui.plans.ProfileActivity
 import com.example.kyrs.ui.plans.ProfileFragment
 
@@ -58,6 +59,14 @@ class EventActivity : BaseActivity(), EventView {
             }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        btnRegister.setOnClickListener {
+            presenter.onRegisterClicked()
+        }
+    }
+
     override fun showEvent(event: Event, imagePath: String) {
         val name = event.owner.name + " " + event.owner.surname
         tvName.text = name
@@ -73,28 +82,32 @@ class EventActivity : BaseActivity(), EventView {
 
         val scale = baseContext.resources.displayMetrics.density;
 
-        event.participants.forEach { user ->
-            val imageView = with(ImageView(this)) {
+        if (event.participants.count() == 0) {
+            tvParticipants.visibility = View.GONE
+        } else {
+            event.participants.forEach { user ->
+                val imageView = with(ImageView(this)) {
 
-                layoutParams = ViewGroup.MarginLayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                ).also {
-                    it.marginStart = (12 * scale + 0.5f).toInt()
-                    it.topMargin = (4 * scale + 0.5f).toInt()
-                    it.width = (50 * scale + 0.5f).toInt()
-                    it.height = (50 * scale + 0.5f).toInt()
+                    layoutParams = ViewGroup.MarginLayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                    ).also {
+                        it.marginStart = (12 * scale + 0.5f).toInt()
+                        it.topMargin = (4 * scale + 0.5f).toInt()
+                        it.width = (50 * scale + 0.5f).toInt()
+                        it.height = (50 * scale + 0.5f).toInt()
+                    }
+
+                    val urlParticipant = "$imagePath${user.avatar.path}"
+                    Glide.with(this@EventActivity)
+                        .load(urlParticipant)
+                        .transform(CircleCrop())
+                        .into(this)
                 }
 
-                val urlParticipant = "$imagePath${user.avatar.path}"
-                Glide.with(this@EventActivity)
-                    .load(urlParticipant)
-                    .transform(CircleCrop())
-                    .into(this)
+                imageView.view.setOnClickListener { presenter.onParticipantClicked(user.id) }
+                listParticipants.addView(imageView.view)
             }
-
-            imageView.view.setOnClickListener { presenter.onParticipantClicked(user.id) }
-            listParticipants.addView(imageView.view)
         }
     }
 

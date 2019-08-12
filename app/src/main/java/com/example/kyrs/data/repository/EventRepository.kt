@@ -23,4 +23,10 @@ class EventRepository @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
+
+    fun register(id: Int): Single<Event>{
+        return api.eventRegister(id, authHolder.userId)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
 }

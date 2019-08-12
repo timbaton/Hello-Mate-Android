@@ -1,12 +1,19 @@
 package com.example.kyrs.ui.plans
 
 import android.view.View
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.example.kyrs.data.entity.Event
+import com.example.kyrs.di.ImagePath
+import com.example.kyrs.di.Scopes
 import com.example.kyrs.presentation.base.BaseListViewHolder
 import kotlinx.android.synthetic.main.item_event.view.*
+import toothpick.Scope
+import toothpick.Toothpick
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
+import javax.inject.Inject
 import kotlin.math.abs
 import kotlin.math.floor
 
@@ -22,10 +29,24 @@ import kotlin.math.floor
  */
 class EventsViewHolder(itemView: View) : BaseListViewHolder<Event>(itemView) {
 
-    override fun bind(item: Event) {
-        itemView.tvDescription.text = item.description
+    @Inject
+    @field:ImagePath
+    lateinit var serverPath: String// named binding, with name "@my.MyAnnotation"
 
+    override fun bind(item: Event) {
+
+//        TODO: fix this hardcode
+        serverPath = Toothpick.openScope(Scopes.Server).getInstance(String::class.java, "com.example.kyrs.di.ImagePath")
+
+        itemView.tvTitle.text = item.title
         itemView.tvTime.text = getTime(item)
+
+
+        val url = "$serverPath${item.owner.avatar.path}"
+        Glide.with(itemView)
+            .load(url)
+            .transform(CircleCrop())
+            .into(itemView.ivAvatar)
     }
 
     private fun getTime(item: Event): String {

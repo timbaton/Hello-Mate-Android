@@ -38,17 +38,17 @@
             android:layout_height="wrap_content"/>
 
     <TextView
-            android:id="@+id/tvDescription"
+            android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="@id/ivAvatar"
             app:layout_constraintStart_toEndOf="@id/ivAvatar"
             app:layout_constraintEnd_toEndOf="parent"
-
+            android:textStyle="bold"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:textColor="@color/background_dark"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:text="Мужики, приходите порыбачить"
             />
 
@@ -56,7 +56,7 @@
             android:id="@+id/tvDistance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@id/tvDescription"
+            app:layout_constraintEnd_toEndOf="@id/tvTitle"
             app:layout_constraintBottom_toBottomOf="@id/tvTime"
             android:text="5 км от Вас"
             android:textSize="11sp"
