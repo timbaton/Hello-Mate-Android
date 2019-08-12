@@ -8,17 +8,18 @@
               android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:minHeight="?attr/actionBarSize"
             android:layout_height="wrap_content"
             android:paddingBottom="28dp"
             android:paddingTop="16dp"
+            android:paddingEnd="22dp"
             android:background="@color/dark_toolbar"
             app:title="Планы"
             app:titleTextAppearance="@style/MyTitleTextAppearance"
             app:titleTextColor="@color/white"
-            >
-    </android.support.v7.widget.Toolbar>
+            />
 
     <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefresh"

@@ -50,4 +50,8 @@ class PlansPresenter @Inject constructor(
                 viewState.showMessage(it.message.toString())
             }).connect()
     }
+
+    fun onAddButtonClicked() {
+        
+    }
 }

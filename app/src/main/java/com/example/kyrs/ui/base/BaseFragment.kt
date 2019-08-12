@@ -1,9 +1,13 @@
 package com.example.kyrs.ui.base
 
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.arellomobile.mvp.MvpAppCompatFragment
+import com.example.kyrs.R
 import com.example.kyrs.presentation.base.BaseView
 import com.example.kyrs.utils.showToast
 
@@ -25,6 +29,11 @@ abstract class BaseFragment : MvpAppCompatFragment(), BaseView {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?)
-            = inflater.inflate(layoutRes, container, false)!!
+                              savedInstanceState: Bundle?): View =
+        inflater.inflate(layoutRes, container, false)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 }

@@ -1,7 +1,12 @@
 package com.example.kyrs.ui.plans
 
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -12,9 +17,9 @@ import com.example.kyrs.presentation.plans.PlansPresenter
 import com.example.kyrs.presentation.plans.PlansView
 import com.example.kyrs.ui.base.BaseFragment
 import com.example.kyrs.ui.event.EventActivity
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_plans.*
 import toothpick.Toothpick
-import com.google.gson.Gson
 
 
 /**
@@ -43,12 +48,32 @@ class PlansFragment : BaseFragment(), PlansView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
         initList()
 
         swipeRefresh.setOnRefreshListener {
             presenter.onRefreshCalled()
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.menu_new_event, menu)
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_user -> {
+                Log.i("item id ", item.itemId.toString() + "")
+                presenter.onAddButtonClicked()
+                return super.onOptionsItemSelected(item)
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun initList() {
         adapter = EventListAdapter { event ->
             presenter.onEventClicked(event)
