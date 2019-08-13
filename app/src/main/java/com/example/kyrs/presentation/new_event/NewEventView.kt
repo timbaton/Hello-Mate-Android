@@ -1,6 +1,8 @@
 package com.example.kyrs.presentation.new_event
 
+import android.app.DatePickerDialog
 import com.example.kyrs.presentation.base.BaseView
+import java.util.*
 
 /**
  * Project HelloMate
@@ -13,4 +15,7 @@ import com.example.kyrs.presentation.base.BaseView
  */
 interface NewEventView : BaseView {
 
+    fun showDateDialog(year: Int, month: Int, date: Int, dateSetListener: DatePickerDialog.OnDateSetListener)
+
+    fun setDate(dateAndTime: Calendar)
 }

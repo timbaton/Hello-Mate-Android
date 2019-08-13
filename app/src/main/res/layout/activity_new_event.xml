@@ -1,6 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tool="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/app_background"
+            >
+
+        <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:minHeight="?attr/actionBarSize"
+                android:layout_height="wrap_content"
+                android:paddingBottom="28dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="22dp"
+                android:background="@color/dark_toolbar"
+                app:titleTextAppearance="@style/MyTitleTextAppearance"
+                app:titleTextColor="@color/white"
+                />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="27dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_clickable_white_8dp"
+                >
+
+            <LinearLayout
+                    android:id="@+id/llDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingStart="7dp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Дата"
+                        android:textColor="@color/text_gray"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="7dp"
+                        android:textSize="20sp"
+                        />
+
+                <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="24dp"
+                        android:paddingBottom="4dp"
+                        android:paddingStart="7dp"
+                        android:paddingEnd="8dp"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_blue_dark"
+                        tool:text="02.04.1998"
+                        />
+
+                <include layout="@layout/separate_horizontal_purple"/>
+
+                <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="8dp"
+                        android:text="сейчас"
+                        />
+            </LinearLayout>
+
+            <TimePicker
+                    android:id="@+id/tpTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="10dp"
+                    android:timePickerMode="spinner"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="27dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_clickable_white_8dp"
+                >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Локация"
+                    android:textColor="@color/text_gray"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="14dp"
+                    android:textSize="20sp"/>
+
+            <LinearLayout
+                    android:id="@+id/llLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/tvLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="24dp"
+                        android:paddingBottom="4dp"
+                        android:paddingStart="7dp"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_blue_dark"
+                        tool:text="4244.124, 2444.1233"
+                        />
+
+                <include layout="@layout/separate_horizontal_purple"/>
+            </LinearLayout>
+
+            <TextView
+                    android:id="@+id/tvOpenMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="выбрать на карте"
+                    android:textColor="@color/text_blue_dark"
+                    android:textStyle="italic"
+                    android:textSize="17sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginBottom="18dp"
+                    />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginBottom="14dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_clickable_white_8dp"
+                >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Описание"
+                    android:textColor="@color/text_gray"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="14dp"
+                    android:textSize="20sp"/>
+
+            <EditText
+                    android:id="@+id/etDescription"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/bg_et_border"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginEnd="14dp"
+                    android:hint="сообщение"
+                    android:paddingTop="14dp"
+                    android:gravity="top"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:lines="8"
+                    android:inputType="textAutoComplete|textAutoCorrect|textMultiLine"
+                    android:layout_height="180dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

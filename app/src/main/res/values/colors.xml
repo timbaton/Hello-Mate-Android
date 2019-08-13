@@ -11,12 +11,13 @@
     <color name="gray_light">#979797</color>
 
     <color name="background_dark">#292D33</color>
-    <color name="background_light">#F8F8FD</color>
+    <color name="app_background">#F8F8FD</color>
     <color name="dark_toolbar">#24262E</color>
     <color name="gray_edit_text">#5a6a71</color>
 
 
     <color name="text_gray">#aab5c4</color>
+    <color name="text_blue_dark">#1a365c</color>
     <color name="gray_light_arrow">#ccd6e5</color>
     <color name="gray_light_separate">#eaedf0</color>
 
