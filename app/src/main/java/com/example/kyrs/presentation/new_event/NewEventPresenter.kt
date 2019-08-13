@@ -41,4 +41,8 @@ class NewEventPresenter @Inject constructor(
         val date = dateAndTime.get(Calendar.DAY_OF_MONTH)
         viewState.showDateDialog(year, month, date, dateSetListener)
     }
+
+    fun onOpenMapClicked() {
+        viewState.openMapActivity()
+    }
 }

@@ -2,6 +2,7 @@ package com.example.kyrs.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import com.example.kyrs.presentation.splash.SplashScreenView
 import com.example.kyrs.ui.base.BaseActivity
 import android.view.View
@@ -41,6 +42,7 @@ class SplashScreenActivity : BaseActivity(), SplashScreenView {
     }
 
     override fun openLoginScreen() {
+        Log.i("MyTag", "starting activity")
         startActivity(LoginScreenActivity.getIntent(this))
         finish()
     }

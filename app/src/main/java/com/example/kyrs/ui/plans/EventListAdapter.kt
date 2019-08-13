@@ -1,6 +1,6 @@
 package com.example.kyrs.ui.plans
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -20,12 +20,12 @@ import kotlinx.android.synthetic.main.item_event.view.*
  */
 class EventListAdapter (private var onClick: (event: Event) -> Unit): BaseListAdapter<Event>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, position: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, position: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_event, parent, false)
         return EventsViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
         if (holder is EventsViewHolder) {
             if (items.isNotEmpty()) {
                 holder.bind(items[position]!!)

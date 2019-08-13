@@ -12,6 +12,8 @@ import com.example.kyrs.di.Scopes
 import com.example.kyrs.presentation.new_event.NewEventPresenter
 import com.example.kyrs.presentation.new_event.NewEventView
 import com.example.kyrs.ui.base.BaseActivity
+import com.example.kyrs.ui.map.MapActivity
+import com.example.kyrs.utils.setSpan
 import kotlinx.android.synthetic.main.activity_new_event.*
 import toothpick.Toothpick
 import java.util.*
@@ -31,6 +33,8 @@ class NewEventActivity : BaseActivity(), NewEventView {
     override var res: Int? = R.layout.activity_new_event
 
     companion object {
+        private val KEY_MAP = 945
+
         fun getIntent(context: Context): Intent {
             val intent = Intent(context, NewEventActivity::class.java)
             return intent
@@ -56,6 +60,15 @@ class NewEventActivity : BaseActivity(), NewEventView {
         }
 
         tpTime.setIs24HourView(true)
+
+        tvOpenMap.setSpan(
+            resources.getString(R.string.event_open_map),
+            resources.getString(R.string.event_open_map),
+            R.color.text_blue_dark,
+            true
+        ) {
+            presenter.onOpenMapClicked()
+        }
     }
 
     override fun showDateDialog(year: Int, month: Int, date: Int, dateSetListener: DatePickerDialog.OnDateSetListener) {
@@ -69,5 +82,9 @@ class NewEventActivity : BaseActivity(), NewEventView {
             dateAndTime.timeInMillis,
             DateUtils.FORMAT_SHOW_DATE
         )
+    }
+
+    override fun openMapActivity() {
+        startActivityForResult(MapActivity.getIntent(this), KEY_MAP)
     }
 }

@@ -1,6 +1,6 @@
 package com.example.kyrs.presentation.base
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Project HelloMate
@@ -11,7 +11,7 @@ import android.support.v7.widget.RecyclerView
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-08-07
  * Copyright © 2018 SuperEgo. All rights reserved.
  */
-abstract class BaseListAdapter<T> : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+abstract class BaseListAdapter<T> : androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
 
     protected val items: MutableList<T?> = mutableListOf()
 

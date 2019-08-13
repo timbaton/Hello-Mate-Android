@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
           package="com.example.kyrs">
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -20,10 +21,7 @@
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity
-                android:name=".ui.Main2Activity"
-                android:label="@string/title_activity_main2">
-        </activity>
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -37,12 +35,9 @@
                 android:value="@string/google_maps_key"/>
 
         <activity
-                android:name=".ui.MapsActivity"
-                android:label="@string/title_activity_maps">
+                android:name=".ui.map.MapActivity"
+                android:label="@string/title_activity_map">
         </activity>
-        <activity
-                android:name=".ui.login.LoginScreenActivity"
-                android:theme="@style/NoStatusBar"/>
         <activity
                 android:name=".ui.splash.SplashScreenActivity"
                 android:theme="@style/SplashTheme">
@@ -52,6 +47,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+                android:name=".ui.login.LoginScreenActivity"
+                android:theme="@style/NoStatusBar"/>
         <activity
                 android:name=".ui.registration.RegistrationActivity"
                 android:theme="@style/NoStatusBar"/>

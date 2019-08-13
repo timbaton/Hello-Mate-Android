@@ -2,7 +2,6 @@ package com.example.kyrs.ui.base
 
 import android.os.Bundle
 import android.widget.Toast
-import com.arellomobile.mvp.MvpAppCompatActivity
 import com.example.kyrs.presentation.base.BaseView
 
 /**
@@ -14,7 +13,7 @@ import com.example.kyrs.presentation.base.BaseView
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-05-31
  * Copyright © 2018 SuperEgo. All rights reserved.
  */
-abstract class BaseActivity : MvpAppCompatActivity(), BaseView {
+abstract class BaseActivity : com.example.kyrs.migratedMoxy.MvpAppCompatActivity(), BaseView {
 
     abstract var res: Int?
 

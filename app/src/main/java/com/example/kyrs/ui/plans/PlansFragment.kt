@@ -1,8 +1,8 @@
 package com.example.kyrs.ui.plans
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
@@ -79,7 +79,7 @@ class PlansFragment : BaseFragment(), PlansView {
         }
 
         rvList.setHasFixedSize(true)
-        rvList.layoutManager = LinearLayoutManager(context)
+        rvList.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
         rvList.adapter = adapter
 
     }

@@ -13,7 +13,7 @@
             android:background="@color/app_background"
             >
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:minHeight="?attr/actionBarSize"
@@ -133,7 +133,7 @@
                     android:id="@+id/tvOpenMap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="выбрать на карте"
+                    android:text="@string/event_open_map"
                     android:textColor="@color/text_blue_dark"
                     android:textStyle="italic"
                     android:textSize="17sp"

@@ -1,5 +1,6 @@
 package com.example.kyrs.presentation.splash
 
+import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.example.kyrs.presentation.base.BasePresenter
 import javax.inject.Inject
@@ -19,6 +20,7 @@ class SplashScreenPresenter @Inject constructor() : BasePresenter<SplashScreenVi
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
 
+        Log.i("My tag", "first view attach")
         viewState.openLoginScreen()
     }
 }
