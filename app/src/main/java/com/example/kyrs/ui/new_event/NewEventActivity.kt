@@ -1,5 +1,6 @@
 package com.example.kyrs.ui.new_event
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
@@ -14,6 +15,7 @@ import com.example.kyrs.presentation.new_event.NewEventView
 import com.example.kyrs.ui.base.BaseActivity
 import com.example.kyrs.ui.map.MapActivity
 import com.example.kyrs.utils.setSpan
+import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_new_event.*
 import toothpick.Toothpick
 import java.util.*
@@ -33,7 +35,8 @@ class NewEventActivity : BaseActivity(), NewEventView {
     override var res: Int? = R.layout.activity_new_event
 
     companion object {
-        private val KEY_MAP = 945
+        private val MAP_REQUEST = 945
+        var KEY_LOCATION = "key_location"
 
         fun getIntent(context: Context): Intent {
             val intent = Intent(context, NewEventActivity::class.java)
@@ -71,6 +74,18 @@ class NewEventActivity : BaseActivity(), NewEventView {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == MAP_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == Activity.RESULT_OK) {
+                val location: LatLng? = data?.extras?.getParcelable(KEY_LOCATION)
+                val locationString = location?.latitude.toString() + ", " + location?.longitude.toString()
+                tvLocation.text = locationString
+            }
+        }
+    }
+
     override fun showDateDialog(year: Int, month: Int, date: Int, dateSetListener: DatePickerDialog.OnDateSetListener) {
         DatePickerDialog(this@NewEventActivity, dateSetListener, year, month, date)
             .show()
@@ -85,6 +100,6 @@ class NewEventActivity : BaseActivity(), NewEventView {
     }
 
     override fun openMapActivity() {
-        startActivityForResult(MapActivity.getIntent(this), KEY_MAP)
+        startActivityForResult(MapActivity.getIntent(this), MAP_REQUEST)
     }
 }

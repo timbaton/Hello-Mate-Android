@@ -40,9 +40,10 @@
 
             <LinearLayout
                     android:id="@+id/llDate"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:paddingStart="7dp"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
                 <TextView
@@ -57,7 +58,7 @@
 
                 <TextView
                         android:id="@+id/tvDate"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingTop="24dp"
                         android:paddingBottom="4dp"
@@ -81,7 +82,7 @@
 
             <TimePicker
                     android:id="@+id/tpTime"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="160dp"
                     android:layout_marginTop="10dp"
                     android:timePickerMode="spinner"/>
@@ -175,6 +176,7 @@
                     android:gravity="top"
                     android:paddingStart="14dp"
                     android:paddingEnd="14dp"
+                    android:layout_marginBottom="24dp"
                     android:lines="8"
                     android:inputType="textAutoComplete|textAutoCorrect|textMultiLine"
                     android:layout_height="180dp"/>

@@ -7,13 +7,14 @@
         android:layout_width="match_parent">
 
     <LinearLayout
+            android:id="@+id/llBack"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         <LinearLayout
-                android:id="@+id/backButton"
+                android:id="@+id/btnBack"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
             <ImageView
                     android:layout_width="wrap_content"
@@ -26,6 +27,7 @@
                     android:layout_marginStart="4dp"
                     android:textColor="@color/white"
                     android:textSize="18sp"
+                    android:layout_marginBottom="2dp"
                     android:text="Назад"/>
         </LinearLayout>
 
@@ -40,5 +42,15 @@
                 android:layout_height="24dp"
                 android:visibility="gone"
                 android:layout_marginEnd="30dp"/>
+
+        <TextView
+                android:id="@+id/btnReady"
+                android:layout_width="wrap_content"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"
+                android:text="Готово"
+                android:textColor="@color/green"
+                android:layout_marginEnd="18dp"
+                />
     </LinearLayout>
 </androidx.appcompat.widget.Toolbar>
