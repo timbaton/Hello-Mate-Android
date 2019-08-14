@@ -11,5 +11,5 @@ package com.example.kyrs.data.entity
  */
 data class Location(
     val lat: Double,
-    val leng: Double
+    val lng: Double
 )

@@ -2,6 +2,7 @@ package com.example.kyrs.data.network
 
 import com.example.kyrs.data.entity.Event
 import com.example.kyrs.data.entity.request.LoginRequest
+import com.example.kyrs.data.entity.request.NewEventRequest
 import com.example.kyrs.data.entity.response.LoginResponse
 import com.example.kyrs.data.entity.response.ProfileResponse
 import com.example.kyrs.data.entity.response.User
@@ -46,4 +47,7 @@ interface HelloMateApi {
 
     @POST("/rest/event_unsubscribe")
     fun eventUnsubscribe(@Query(value = "event_id") event_id: Int, @Query(value = "user_id") user_id: Int): Single<Event>
+
+    @POST("/rest/event")
+    fun addEvent(@Body event: NewEventRequest,@Query(value = "user_id") id: Int): Single<Event>
 }

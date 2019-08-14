@@ -3,8 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tool="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:layout_height="match_parent">
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -13,18 +12,43 @@
             android:background="@color/app_background"
             >
 
-        <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+        <include layout="@layout/toolbar"/>
+
+        <LinearLayout
                 android:layout_width="match_parent"
-                android:minHeight="?attr/actionBarSize"
                 android:layout_height="wrap_content"
-                android:paddingBottom="28dp"
-                android:paddingTop="16dp"
-                android:paddingEnd="22dp"
-                android:background="@color/dark_toolbar"
-                app:titleTextAppearance="@style/MyTitleTextAppearance"
-                app:titleTextColor="@color/white"
-                />
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="27dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_clickable_white_8dp"
+                >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Название"
+                    android:textColor="@color/text_gray"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="14dp"
+                    android:textSize="20sp"/>
+
+            <EditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginEnd="14dp"
+                    android:hint="придумайте название"
+                    android:gravity="top"
+                    android:background="@color/white"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:layout_marginBottom="24dp"
+                    android:inputType="textAutoComplete|textAutoCorrect|textMultiLine"
+                    />
+        </LinearLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -63,6 +87,7 @@
                         android:paddingTop="24dp"
                         android:paddingBottom="4dp"
                         android:paddingStart="7dp"
+                        android:inputType="date"
                         android:paddingEnd="8dp"
                         android:textSize="18sp"
                         android:textColor="@color/text_blue_dark"
@@ -166,6 +191,7 @@
 
             <EditText
                     android:id="@+id/etDescription"
+                    android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:background="@drawable/bg_et_border"
                     android:layout_marginTop="20dp"
@@ -179,7 +205,7 @@
                     android:layout_marginBottom="24dp"
                     android:lines="8"
                     android:inputType="textAutoComplete|textAutoCorrect|textMultiLine"
-                    android:layout_height="180dp"/>
+                    />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

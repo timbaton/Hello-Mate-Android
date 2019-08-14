@@ -15,8 +15,10 @@ import com.example.kyrs.presentation.new_event.NewEventView
 import com.example.kyrs.ui.base.BaseActivity
 import com.example.kyrs.ui.map.MapActivity
 import com.example.kyrs.utils.setSpan
+import com.example.kyrs.utils.visible
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_new_event.*
+import kotlinx.android.synthetic.main.toolbar.*
 import toothpick.Toothpick
 import java.util.*
 
@@ -56,10 +58,8 @@ class NewEventActivity : BaseActivity(), NewEventView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        with(llDate) {
-            setOnClickListener {
-                presenter.onDateClicked()
-            }
+        llDate.setOnClickListener {
+            presenter.onDateClicked()
         }
 
         tpTime.setIs24HourView(true)
@@ -72,17 +72,31 @@ class NewEventActivity : BaseActivity(), NewEventView {
         ) {
             presenter.onOpenMapClicked()
         }
+
+        btnReady.setOnClickListener {
+            presenter.onReadyClicked(
+                etName.text.toString(),
+                tpTime.currentHour,
+                tpTime.currentMinute,
+                etDescription.text.toString()
+            )
+        }
+
+        btnBack.visible(false)
+
+        with(btnCancel) {
+            visible(true)
+            setOnClickListener {
+                presenter.onCancelClicked()
+            }
+        }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == MAP_REQUEST) {
-            // Make sure the request was successful
-            if (resultCode == Activity.RESULT_OK) {
-                val location: LatLng? = data?.extras?.getParcelable(KEY_LOCATION)
-                val locationString = location?.latitude.toString() + ", " + location?.longitude.toString()
-                tvLocation.text = locationString
-            }
+            presenter.onActivityResult(resultCode, data)
         }
     }
 
@@ -91,12 +105,16 @@ class NewEventActivity : BaseActivity(), NewEventView {
             .show()
     }
 
-    override fun setDate(dateAndTime: Calendar) {
+    override fun showDate(dateAndTime: Calendar) {
         tvDate.text = DateUtils.formatDateTime(
             this,
             dateAndTime.timeInMillis,
             DateUtils.FORMAT_SHOW_DATE
         )
+    }
+
+    override fun showLocation(locationString: String) {
+        tvLocation.text = locationString
     }
 
     override fun openMapActivity() {

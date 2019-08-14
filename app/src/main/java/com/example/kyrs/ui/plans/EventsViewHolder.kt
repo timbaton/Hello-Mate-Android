@@ -52,19 +52,10 @@ class EventsViewHolder(itemView: View) : BaseListViewHolder<Event>(itemView) {
     private fun getTime(item: Event): String {
 
         var dateString = item.date
-        var date: Date? = null
-        val dateFromString = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S")
-
-        dateFromString.setLenient(false)
-        try {
-            date = dateFromString.parse(dateString)
-        } catch (e: ParseException) {
-            e.printStackTrace()
-        }
 
 //        val date2 = timestamp.time
         val date1 = Date().time
-        val date2 = date!!.time
+        val date2 = dateString.toLong()
 
 
         val res = abs(date1 - date2) / 1000
@@ -81,6 +72,6 @@ class EventsViewHolder(itemView: View) : BaseListViewHolder<Event>(itemView) {
         val hours = floor((res / 3600).toDouble()) % 24
 
         val minutes = floor((res / 60).toDouble()) % 60
-        return "$hours hours$minutes min"
+        return "$hours hours $minutes min"
     }
 }

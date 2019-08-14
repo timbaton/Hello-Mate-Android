@@ -17,7 +17,10 @@ interface NewEventView : BaseView {
 
     fun showDateDialog(year: Int, month: Int, date: Int, dateSetListener: DatePickerDialog.OnDateSetListener)
 
-    fun setDate(dateAndTime: Calendar)
+    fun showDate(dateAndTime: Calendar)
+    fun showLocation(locationString: String)
 
     fun openMapActivity()
+
+    fun onBackPressed()
 }

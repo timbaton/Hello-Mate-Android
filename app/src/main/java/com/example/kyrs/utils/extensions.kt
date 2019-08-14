@@ -55,3 +55,11 @@ fun TextView.setSpan(text: String, spannableText: String, spannableTextColor: In
     this.movementMethod = LinkMovementMethod.getInstance()
     this.highlightColor = Color.TRANSPARENT
 }
+
+fun View.visible(isVisible: Boolean) {
+    if (isVisible) {
+        this.visibility = View.VISIBLE
+    } else {
+        this.visibility = View.GONE
+    }
+}

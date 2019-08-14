@@ -1,6 +1,7 @@
 package com.example.kyrs.data.repository
 
 import com.example.kyrs.data.entity.Event
+import com.example.kyrs.data.entity.request.NewEventRequest
 import com.example.kyrs.data.network.HelloMateApi
 import com.example.kyrs.data.sharedPref.AuthHolder
 import io.reactivex.Single
@@ -32,6 +33,12 @@ class EventRepository @Inject constructor(
 
     fun unsubscribe(id: Int): Single<Event> {
         return api.eventUnsubscribe(id, authHolder.userId)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun addEvent(event: NewEventRequest): Single<Event> {
+        return api.addEvent(event, authHolder.userId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }

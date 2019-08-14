@@ -1,8 +1,17 @@
 package com.example.kyrs.presentation.new_event
 
+import android.app.Activity
 import android.app.DatePickerDialog
+import android.content.Intent
 import com.arellomobile.mvp.InjectViewState
+import com.example.kyrs.data.entity.Location
+import com.example.kyrs.data.entity.request.NewEventRequest
+import com.example.kyrs.data.repository.EventRepository
 import com.example.kyrs.presentation.base.BasePresenter
+import com.example.kyrs.ui.new_event.NewEventActivity
+import com.google.android.gms.maps.model.LatLng
+import java.sql.Timestamp
+import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
@@ -17,14 +26,15 @@ import javax.inject.Inject
  */
 @InjectViewState
 class NewEventPresenter @Inject constructor(
-
+    private var eventRepository: EventRepository
 ) : BasePresenter<NewEventView>() {
 
     var dateAndTime = Calendar.getInstance()
+    var location: Location? = null
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        viewState.setDate(dateAndTime)
+        viewState.showDate(dateAndTime)
     }
 
     // установка обработчика выбора даты
@@ -32,7 +42,7 @@ class NewEventPresenter @Inject constructor(
         dateAndTime.set(Calendar.YEAR, year)
         dateAndTime.set(Calendar.MONTH, month)
         dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-        viewState.setDate(dateAndTime)
+        viewState.showDate(dateAndTime)
     }
 
     fun onDateClicked() {
@@ -44,5 +54,49 @@ class NewEventPresenter @Inject constructor(
 
     fun onOpenMapClicked() {
         viewState.openMapActivity()
+    }
+
+    fun onCancelClicked() {
+        viewState.onBackPressed()
+    }
+
+    fun onReadyClicked(title: String, hours: Int, minute: Int, description: String) {
+        dateAndTime.apply {
+            set(Calendar.HOUR, hours)
+            set(Calendar.MINUTE, minute)
+        }
+
+        val timeStamp = Date(dateAndTime.time.time)
+        val time = timeStamp.time.toString()
+
+//        val dateFromString = SimpleDateFormat("yyyy-MM-dd'T'HH:mm")
+//        val date = "${dateAndTime.get(Calendar.YEAR)}-${dateAndTime.get(Calendar.MONTH)}-${Calendar.DAY_OF_MONTH}"
+//        val date1 = timeStamp.time
+
+
+        eventRepository.addEvent(
+            NewEventRequest(
+                title = title,
+                description = description,
+                location = location!!.lat.toString() + " " + location!!.lng.toString(),
+                date = time
+            )
+        ).subscribe({
+            viewState.showMessage(it.id.toString())
+        }, {
+            viewState.showMessage(it.message.toString())
+        }).connect()
+    }
+
+    fun onActivityResult(resultCode: Int, data: Intent?) {
+        // Make sure the request was successful
+        if (resultCode == Activity.RESULT_OK) {
+            val location: LatLng? = data?.extras?.getParcelable(NewEventActivity.KEY_LOCATION)
+            val locationString = location?.latitude.toString() + ", " + location?.longitude.toString()
+
+            viewState.showLocation(locationString)
+
+            this.location = Location(location?.latitude!!, location.longitude)
+        }
     }
 }
