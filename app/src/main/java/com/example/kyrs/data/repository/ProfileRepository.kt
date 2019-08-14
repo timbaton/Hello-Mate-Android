@@ -19,4 +19,9 @@ class ProfileRepository @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
+
+    fun exit() {
+        authHolder.token = ""
+        authHolder.userId = 0
+    }
 }

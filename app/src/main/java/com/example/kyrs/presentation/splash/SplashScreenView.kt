@@ -14,5 +14,6 @@ import com.example.kyrs.presentation.base.BaseView
 interface SplashScreenView : BaseView {
 
     fun openLoginScreen()
+    fun openMainScreen()
 
 }

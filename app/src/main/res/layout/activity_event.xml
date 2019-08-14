@@ -19,12 +19,7 @@
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:titleEnabled="false">
 
-            <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:titleTextColor="@color/white"
-                    app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+            <include layout="@layout/toolbar"/>
 
             <TextView
                     android:layout_width="wrap_content"

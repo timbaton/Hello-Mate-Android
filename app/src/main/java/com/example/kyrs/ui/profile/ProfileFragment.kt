@@ -1,5 +1,7 @@
-package com.example.kyrs.ui.plans
+package com.example.kyrs.ui.profile
 
+import android.os.Bundle
+import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.bumptech.glide.Glide
@@ -10,7 +12,10 @@ import com.example.kyrs.di.Scopes
 import com.example.kyrs.presentation.profile.ProfilePresenter
 import com.example.kyrs.presentation.profile.ProfileView
 import com.example.kyrs.ui.base.BaseFragment
+import com.example.kyrs.ui.login.LoginScreenActivity
+import com.example.kyrs.utils.visible
 import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.toolbar.*
 import toothpick.Toothpick
 
 /**
@@ -35,6 +40,16 @@ class ProfileFragment : BaseFragment(), ProfileView {
             .getInstance(ProfilePresenter::class.java)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        tvExit.setOnClickListener {
+            presenter.onExitClicked()
+        }
+
+        toolbar.visible(false)
+    }
+
     override fun fillProfileData(data: ProfileResponse?, serverPath: String) {
         tvName.text = data?.name + " " + data?.surname
         tvMail.text = data?.mail
@@ -45,5 +60,14 @@ class ProfileFragment : BaseFragment(), ProfileView {
             .load(url)
             .transform(CircleCrop())
             .into(ivAvatar)
+    }
+
+    override fun openLoginActivity() {
+        startActivity(LoginScreenActivity.getIntent(context!!))
+        activity?.finish()
+    }
+
+    override fun onBackPressed() {
+        activity?.onBackPressed()
     }
 }

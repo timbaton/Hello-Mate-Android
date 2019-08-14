@@ -62,6 +62,7 @@ class MapPresenter @Inject constructor(
     }
 
     fun onMapClicked(location: LatLng) {
+        this.location = location
         viewState.moveCamera(location)
         viewState.putMarker(location)
     }

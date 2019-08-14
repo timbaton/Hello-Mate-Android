@@ -22,5 +22,8 @@ interface EventView : BaseView {
     fun setButtonRegister()
     fun setButtonDelete()
 
+    fun openDialogSuccess()
+
     fun finish()
+    fun onBackPressed()
 }

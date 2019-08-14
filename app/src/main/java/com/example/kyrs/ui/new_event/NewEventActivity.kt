@@ -1,6 +1,5 @@
 package com.example.kyrs.ui.new_event
 
-import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
@@ -13,10 +12,10 @@ import com.example.kyrs.di.Scopes
 import com.example.kyrs.presentation.new_event.NewEventPresenter
 import com.example.kyrs.presentation.new_event.NewEventView
 import com.example.kyrs.ui.base.BaseActivity
+import com.example.kyrs.ui.dialog.SuccessDialog
 import com.example.kyrs.ui.map.MapActivity
 import com.example.kyrs.utils.setSpan
 import com.example.kyrs.utils.visible
-import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_new_event.*
 import kotlinx.android.synthetic.main.toolbar.*
 import toothpick.Toothpick
@@ -111,6 +110,14 @@ class NewEventActivity : BaseActivity(), NewEventView {
             dateAndTime.timeInMillis,
             DateUtils.FORMAT_SHOW_DATE
         )
+    }
+
+    override fun openDialogSuccess() {
+        val builder = SuccessDialog {
+            presenter.onCloseSuccessDialog()
+        }
+
+        builder.show(supportFragmentManager, "successDialog")
     }
 
     override fun showLocation(locationString: String) {

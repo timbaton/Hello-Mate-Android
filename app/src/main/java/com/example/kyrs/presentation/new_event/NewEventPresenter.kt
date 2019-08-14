@@ -75,7 +75,7 @@ class NewEventPresenter @Inject constructor(
                 date = time
             )
         ).subscribe({
-            viewState.showMessage(it.id.toString())
+            viewState.openDialogSuccess()
         }, {
             viewState.showMessage(it.message.toString())
         }).connect()
@@ -91,5 +91,9 @@ class NewEventPresenter @Inject constructor(
 
             this.location = Location(location?.latitude!!, location.longitude)
         }
+    }
+
+    fun onCloseSuccessDialog() {
+        viewState.finish()
     }
 }

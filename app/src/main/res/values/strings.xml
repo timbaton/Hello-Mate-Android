@@ -6,4 +6,7 @@
     <string name="event_open_map">выбрать на карте</string>
     <string name="title_activity_maps2">Map</string>
     <string name="title_activity_map">Map</string>
+
+    <!--utils-->
+    <string name="success">Готово!</string>
 </resources>

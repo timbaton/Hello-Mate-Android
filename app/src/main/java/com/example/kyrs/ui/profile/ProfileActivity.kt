@@ -14,7 +14,10 @@ import com.example.kyrs.di.Scopes
 import com.example.kyrs.presentation.profile.ProfilePresenter
 import com.example.kyrs.presentation.profile.ProfileView
 import com.example.kyrs.ui.base.BaseActivity
+import com.example.kyrs.ui.login.LoginScreenActivity
+import com.example.kyrs.utils.visible
 import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.toolbar.*
 import toothpick.Toothpick
 
 /**
@@ -57,6 +60,14 @@ class ProfileActivity : BaseActivity(), ProfileView {
         super.onCreate(savedInstanceState)
 
         llProfileSettings.visibility = View.GONE
+        tvExit.setOnClickListener {
+            presenter.onExitClicked()
+        }
+
+        btnBack.setOnClickListener {
+            presenter.onBackPressed()
+        }
+        btnReady.visible(false)
     }
 
     override fun fillProfileData(data: ProfileResponse?, serverPath: String) {
@@ -69,5 +80,10 @@ class ProfileActivity : BaseActivity(), ProfileView {
             .load(url)
             .transform(CircleCrop())
             .into(ivAvatar)
+    }
+
+    override fun openLoginActivity() {
+        startActivity(LoginScreenActivity.getIntent(this))
+        finish()
     }
 }

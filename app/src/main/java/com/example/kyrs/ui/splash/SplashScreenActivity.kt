@@ -12,6 +12,7 @@ import com.example.kyrs.R
 import com.example.kyrs.di.Scopes
 import com.example.kyrs.presentation.splash.SplashScreenPresenter
 import com.example.kyrs.ui.login.LoginScreenActivity
+import com.example.kyrs.ui.main.MainContainerActivity
 import toothpick.Toothpick
 
 
@@ -36,14 +37,13 @@ class SplashScreenActivity : BaseActivity(), SplashScreenView {
         return Toothpick.openScope(Scopes.Server).getInstance(SplashScreenPresenter::class.java)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    override fun openLoginScreen() {
+        startActivity(LoginScreenActivity.getIntent(this))
+        finish()
     }
 
-    override fun openLoginScreen() {
-        Log.i("MyTag", "starting activity")
-        startActivity(LoginScreenActivity.getIntent(this))
+    override fun openMainScreen() {
+        startActivity(MainContainerActivity.getIntent(this))
         finish()
     }
 }

@@ -19,7 +19,10 @@ import kotlinx.android.synthetic.main.activity_event.*
 import toothpick.Toothpick
 import android.os.Bundle
 import android.view.View
+import com.example.kyrs.ui.dialog.SuccessDialog
 import com.example.kyrs.ui.plans.ProfileActivity
+import com.example.kyrs.utils.visible
+import kotlinx.android.synthetic.main.toolbar.*
 
 
 /**
@@ -63,6 +66,12 @@ class EventActivity : BaseActivity(), EventView {
 
         btnRegister.setOnClickListener {
             presenter.onRegisterClicked()
+        }
+
+        btnReady.visible(false)
+
+        btnBack.setOnClickListener {
+            presenter.onBackPressed()
         }
     }
 
@@ -132,6 +141,14 @@ class EventActivity : BaseActivity(), EventView {
         btnRegister.setOnClickListener {
             presenter.onDeleteClicked()
         }
+    }
+
+    override fun openDialogSuccess() {
+        val builder = SuccessDialog {
+            presenter.onCloseSuccessDialog()
+        }
+
+        builder.show(supportFragmentManager, "successDialog")
     }
 
     override fun openProfile(userId: Int) {

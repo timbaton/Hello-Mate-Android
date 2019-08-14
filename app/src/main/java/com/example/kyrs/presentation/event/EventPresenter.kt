@@ -58,7 +58,7 @@ class EventPresenter @Inject constructor(
     fun onRegisterClicked() {
         eventRepository.register(event.id.toInt())
             .subscribe({
-                viewState.showMessage("Success!")
+                viewState.openDialogSuccess()
             }, {
                 viewState.showMessage(it.message.toString())
             }).connect()
@@ -70,7 +70,7 @@ class EventPresenter @Inject constructor(
                 viewState.setButtonRegister()
             }
             .subscribe({
-                viewState.showMessage("Success!")
+                viewState.openDialogSuccess()
             }, {
                 viewState.showMessage(it.message.toString())
             }).connect()
@@ -79,10 +79,18 @@ class EventPresenter @Inject constructor(
     fun onDeleteClicked() {
         eventRepository.delete(event.id.toInt())
             .subscribe({
-                viewState.finish()
+                viewState.openDialogSuccess()
             }, {
                 viewState.showMessage(it.message.toString())
             }).connect()
 
+    }
+
+    fun onCloseSuccessDialog() {
+        viewState.finish()
+    }
+
+    fun onBackPressed() {
+        viewState.onBackPressed()
     }
 }

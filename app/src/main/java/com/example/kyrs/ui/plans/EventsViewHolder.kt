@@ -63,7 +63,7 @@ class EventsViewHolder(itemView: View) : BaseListViewHolder<Event>(itemView) {
         // get total days between two dates
         with(floor((res / 86400).toDouble())) {
             if (this > 0) {
-                dateString = "$this days"
+                dateString = "${this.toInt()} days"
                 return dateString
             }
         }
@@ -72,6 +72,11 @@ class EventsViewHolder(itemView: View) : BaseListViewHolder<Event>(itemView) {
         val hours = floor((res / 3600).toDouble()) % 24
 
         val minutes = floor((res / 60).toDouble()) % 60
-        return "$hours hours $minutes min"
+
+        return if (hours > 0) {
+            "${hours.toInt()} hours ${minutes.toInt()} min"
+        } else {
+            "${minutes.toInt()} min"
+        }
     }
 }

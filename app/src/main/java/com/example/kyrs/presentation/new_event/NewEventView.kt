@@ -20,7 +20,10 @@ interface NewEventView : BaseView {
     fun showDate(dateAndTime: Calendar)
     fun showLocation(locationString: String)
 
+    fun openDialogSuccess()
+
     fun openMapActivity()
 
     fun onBackPressed()
+    fun finish()
 }

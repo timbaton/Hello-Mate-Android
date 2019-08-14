@@ -11,7 +11,7 @@
 
     <color name="gray_light">#979797</color>
 
-    <color name="background_dark">#292D33</color>
+    <color name="background_dark">#24262E</color>
     <color name="app_background">#F8F8FD</color>
     <color name="dark_toolbar">#24262E</color>
     <color name="gray_edit_text">#5a6a71</color>

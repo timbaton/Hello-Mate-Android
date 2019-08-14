@@ -11,6 +11,7 @@ import com.example.kyrs.presentation.registration.RegistrationPresenter
 import com.example.kyrs.presentation.registration.RegistrationView
 import com.example.kyrs.ui.base.BaseActivity
 import com.example.kyrs.ui.main.MainContainerActivity
+import com.example.kyrs.utils.visible
 import kotlinx.android.synthetic.main.activity_registration.*
 import kotlinx.android.synthetic.main.toolbar.*
 import toothpick.Toothpick
@@ -52,6 +53,8 @@ class RegistrationActivity : BaseActivity(), RegistrationView {
         btnReg.setOnClickListener {
             presenter.onRegistrationBtnClicked(etLogin.text.toString(), etPassword.text.toString())
         }
+
+        btnReady.visible(false)
     }
 
     override fun back() {

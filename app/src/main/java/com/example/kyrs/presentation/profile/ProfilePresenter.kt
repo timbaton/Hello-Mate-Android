@@ -37,4 +37,14 @@ class ProfilePresenter @Inject constructor(
                 viewState.showMessage(it.message.toString())
             }).connect()
     }
+
+    fun onExitClicked() {
+        profileRepository.exit()
+
+        viewState.openLoginActivity()
+    }
+
+    fun onBackPressed() {
+        viewState.onBackPressed()
+    }
 }

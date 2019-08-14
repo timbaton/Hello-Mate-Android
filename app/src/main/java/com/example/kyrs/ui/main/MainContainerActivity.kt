@@ -9,7 +9,7 @@ import com.example.kyrs.R
 import com.example.kyrs.presentation.main.MainScreenView
 import com.example.kyrs.ui.base.BaseActivity
 import com.example.kyrs.ui.plans.PlansFragment
-import com.example.kyrs.ui.plans.ProfileFragment
+import com.example.kyrs.ui.profile.ProfileFragment
 import com.example.kyrs.ui.plans.SearchFragment
 
 /**
