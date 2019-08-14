@@ -6,6 +6,7 @@ import com.example.kyrs.data.repository.EventRepository
 import com.example.kyrs.data.sharedPref.AuthHolder
 import com.example.kyrs.di.ImagePath
 import com.example.kyrs.presentation.base.BasePresenter
+import com.google.android.gms.maps.model.LatLng
 import javax.inject.Inject
 
 /**
@@ -92,5 +93,13 @@ class EventPresenter @Inject constructor(
 
     fun onBackPressed() {
         viewState.onBackPressed()
+    }
+
+    fun onOpenProfileClicked() {
+        viewState.openProfile(event.owner.id)
+    }
+
+    fun onMapReady() {
+        viewState.showEventLocation(LatLng(event.location.lat, event.location.lng))
     }
 }

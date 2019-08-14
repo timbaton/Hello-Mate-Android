@@ -131,7 +131,7 @@ class MapActivity : BaseActivity(), OnMapReadyCallback, MapView {
     }
 
     override fun moveCamera(curLocation: LatLng) {
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(curLocation ?: LatLng(-34.0, 151.0)))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(curLocation))
     }
 
     override fun putMarker(position: LatLng) {

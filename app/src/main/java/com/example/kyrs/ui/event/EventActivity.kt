@@ -2,6 +2,8 @@ package com.example.kyrs.ui.event
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -14,15 +16,23 @@ import com.example.kyrs.di.Scopes
 import com.example.kyrs.presentation.event.EventPresenter
 import com.example.kyrs.presentation.event.EventView
 import com.example.kyrs.ui.base.BaseActivity
-import com.google.gson.Gson
-import kotlinx.android.synthetic.main.activity_event.*
-import toothpick.Toothpick
-import android.os.Bundle
-import android.view.View
 import com.example.kyrs.ui.dialog.SuccessDialog
 import com.example.kyrs.ui.plans.ProfileActivity
+import com.example.kyrs.utils.setSpan
 import com.example.kyrs.utils.visible
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_event.*
 import kotlinx.android.synthetic.main.toolbar.*
+import toothpick.Toothpick
+import android.view.MotionEvent
+
+
 
 
 /**
@@ -34,9 +44,11 @@ import kotlinx.android.synthetic.main.toolbar.*
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-08-11
  * Copyright © 2018 SuperEgo. All rights reserved.
  */
-class EventActivity : BaseActivity(), EventView {
+class EventActivity : BaseActivity(), EventView, OnMapReadyCallback {
 
     override var res: Int? = R.layout.activity_event
+
+    private lateinit var mMap: GoogleMap
 
     companion object {
         private var KEY_EVENT = "key_event"
@@ -64,6 +76,11 @@ class EventActivity : BaseActivity(), EventView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+
+
         btnRegister.setOnClickListener {
             presenter.onRegisterClicked()
         }
@@ -73,6 +90,55 @@ class EventActivity : BaseActivity(), EventView {
         btnBack.setOnClickListener {
             presenter.onBackPressed()
         }
+
+        tvOpenProfile.setSpan(
+            resources.getString(R.string.open_profile),
+            resources.getString(R.string.open_profile),
+            R.color.black,
+            true
+        ) {
+            presenter.onOpenProfileClicked()
+        }
+
+        //fix scrolling issue
+        transparent_image.setOnTouchListener { _, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    // Disallow ScrollView to intercept touch events.
+                    scrollView.requestDisallowInterceptTouchEvent(true)
+                    // Disable touch on transparent view
+                    false
+                }
+
+                MotionEvent.ACTION_UP -> {
+                    // Allow ScrollView to intercept touch events.
+                    scrollView.requestDisallowInterceptTouchEvent(true)
+                    true
+                }
+
+                MotionEvent.ACTION_MOVE -> {
+                    scrollView.requestDisallowInterceptTouchEvent(true)
+                    false
+                }
+
+                else -> true
+            }
+        }
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        presenter.onMapReady()
+    }
+
+    override fun showEventLocation(location: LatLng) {
+        mMap.addMarker(
+            MarkerOptions()
+                .position(location)
+                .title("Location")
+        )
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(location))
     }
 
     override fun showEvent(event: Event, imagePath: String) {
@@ -152,6 +218,6 @@ class EventActivity : BaseActivity(), EventView {
     }
 
     override fun openProfile(userId: Int) {
-       startActivity(ProfileActivity.getIntent(this, userId))
+        startActivity(ProfileActivity.getIntent(this, userId))
     }
 }

@@ -34,6 +34,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:behavior_overlapTop="40dp"
@@ -86,18 +87,17 @@
                     />
 
             <TextView
+                    android:id="@+id/tvOpenProfile"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="@+id/tvName"
                     app:layout_constraintTop_toBottomOf="@id/tvName"
                     android:layout_marginTop="16dp"
-                    android:text="Перейти в профиль"
-                    android:textColor="@color/black"
+                    android:text="@string/open_profile"
                     android:textStyle="italic"
                     android:textSize="17sp"
                     android:gravity="center"
                     app:layout_constraintStart_toStartOf="@+id/tvName"
-                    android:id="@+id/textView"
                     />
 
             <TextView
@@ -105,7 +105,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="@id/ivAvatar"
-                    app:layout_constraintEnd_toEndOf="@+id/textView"
+                    app:layout_constraintEnd_toEndOf="@+id/tvOpenProfile"
                     app:layout_constraintTop_toBottomOf="@id/ivAvatar"
                     android:layout_marginTop="16dp"
                     android:layout_marginStart="12dp"
@@ -143,6 +143,43 @@
                     app:layout_constraintTop_toTopOf="@id/tvParticipants"
                     app:layout_constraintEnd_toEndOf="@+id/tvDescription"
                     />
+
+            <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Геолокация: "
+                    android:textSize="17sp"
+                    android:layout_marginTop="28dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/listParticipants"
+                    app:layout_constraintStart_toStartOf="@+id/view"
+                    android:layout_marginStart="8dp"
+                    />
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvLocation"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="100dp"
+                    >
+
+                <fragment
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/map"
+                        tool:context=".ui.event.EventActivity"
+                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                        />
+
+                <ImageView
+                        android:id="@+id/transparent_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

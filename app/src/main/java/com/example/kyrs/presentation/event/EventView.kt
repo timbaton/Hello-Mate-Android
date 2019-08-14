@@ -2,6 +2,7 @@ package com.example.kyrs.presentation.event
 
 import com.example.kyrs.data.entity.Event
 import com.example.kyrs.presentation.base.BaseView
+import com.google.android.gms.maps.model.LatLng
 
 /**
  * Project HelloMate
@@ -15,6 +16,7 @@ import com.example.kyrs.presentation.base.BaseView
 interface EventView : BaseView {
 
     fun showEvent(event: Event, imagePath: String)
+    fun showEventLocation(location: LatLng)
 
     fun openProfile(userId: Int)
 
