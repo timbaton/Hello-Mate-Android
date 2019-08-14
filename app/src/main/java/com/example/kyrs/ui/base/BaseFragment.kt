@@ -1,13 +1,10 @@
 package com.example.kyrs.ui.base
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.arellomobile.mvp.MvpAppCompatFragment
-import com.example.kyrs.R
+import com.example.kyrs.migratedMoxy.MvpAppCompatFragment
 import com.example.kyrs.presentation.base.BaseView
 import com.example.kyrs.utils.showToast
 

@@ -7,6 +7,7 @@ import com.example.kyrs.data.sharedPref.AuthHolder
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import okhttp3.Response
 import javax.inject.Inject
 
 class EventRepository @Inject constructor(
@@ -39,6 +40,12 @@ class EventRepository @Inject constructor(
 
     fun addEvent(event: NewEventRequest): Single<Event> {
         return api.addEvent(event, authHolder.userId)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun delete(event_id: Int): Single<Boolean> {
+        return api.deleteEvent(event_id)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }

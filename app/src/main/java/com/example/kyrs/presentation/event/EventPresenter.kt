@@ -30,11 +30,20 @@ class EventPresenter @Inject constructor(
         viewState.showEvent(event, imagePath)
 
         var isRegistered = false
+        var isOwner = false
 
         event.participants.forEach {
             if (it.id == authHolder.userId) {
                 isRegistered = true
             }
+        }
+
+        if (event.owner.id == authHolder.userId) {
+            isOwner = true
+        }
+
+        if (isOwner) {
+            viewState.setButtonDelete()
         }
 
         if (isRegistered) {
@@ -65,5 +74,15 @@ class EventPresenter @Inject constructor(
             }, {
                 viewState.showMessage(it.message.toString())
             }).connect()
+    }
+
+    fun onDeleteClicked() {
+        eventRepository.delete(event.id.toInt())
+            .subscribe({
+                viewState.finish()
+            }, {
+                viewState.showMessage(it.message.toString())
+            }).connect()
+
     }
 }

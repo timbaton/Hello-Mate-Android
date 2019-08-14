@@ -16,6 +16,7 @@ import com.example.kyrs.presentation.plans.PlansView
 import com.example.kyrs.ui.base.BaseFragment
 import com.example.kyrs.ui.event.EventActivity
 import com.example.kyrs.ui.new_event.NewEventActivity
+import com.example.kyrs.utils.visible
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_plans.*
 import toothpick.Toothpick
@@ -87,7 +88,9 @@ class PlansFragment : BaseFragment(), PlansView {
     override fun showEvents(events: List<Event>?) {
         if (events?.isNotEmpty()!!) {
             adapter.addList(events)
+            tvState.visible(false)
         } else {
+            tvState.visible(true)
             tvState.text = "list is empty"
         }
     }
@@ -95,7 +98,9 @@ class PlansFragment : BaseFragment(), PlansView {
     override fun updateEvents(events: List<Event>?) {
         if (events?.isNotEmpty()!!) {
             adapter.updateList(events)
+            tvState.visible(false)
         } else {
+            tvState.visible(true)
             tvState.text = "list is empty"
         }
     }

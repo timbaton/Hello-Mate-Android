@@ -5,13 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.arellomobile.mvp.MvpDelegate
 
 /**
- * Project HelloMate
- * Package com.example.kyrs
+ * Date: 19-Dec-15
+ * Time: 13:25
  *
- *
- *
- * Created by Timur Badretdinov (aka timurbadretdinov) 2019-08-13
- * Copyright © 2018 SuperEgo. All rights reserved.
+ * @author Alexander Blinov
+ * @author Yuri Shmakov
+ * @author Konstantin Tckhovrebov
  */
 open class MvpAppCompatActivity : AppCompatActivity() {
     private var mMvpDelegate: MvpDelegate<out MvpAppCompatActivity>? = null

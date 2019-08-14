@@ -126,6 +126,14 @@ class EventActivity : BaseActivity(), EventView {
         }
     }
 
+    override fun setButtonDelete() {
+        btnRegister.text = "Удалить"
+
+        btnRegister.setOnClickListener {
+            presenter.onDeleteClicked()
+        }
+    }
+
     override fun openProfile(userId: Int) {
        startActivity(ProfileActivity.getIntent(this, userId))
     }

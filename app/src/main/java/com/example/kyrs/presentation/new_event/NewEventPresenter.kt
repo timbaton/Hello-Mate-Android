@@ -10,8 +10,6 @@ import com.example.kyrs.data.repository.EventRepository
 import com.example.kyrs.presentation.base.BasePresenter
 import com.example.kyrs.ui.new_event.NewEventActivity
 import com.google.android.gms.maps.model.LatLng
-import java.sql.Timestamp
-import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
@@ -68,11 +66,6 @@ class NewEventPresenter @Inject constructor(
 
         val timeStamp = Date(dateAndTime.time.time)
         val time = timeStamp.time.toString()
-
-//        val dateFromString = SimpleDateFormat("yyyy-MM-dd'T'HH:mm")
-//        val date = "${dateAndTime.get(Calendar.YEAR)}-${dateAndTime.get(Calendar.MONTH)}-${Calendar.DAY_OF_MONTH}"
-//        val date1 = timeStamp.time
-
 
         eventRepository.addEvent(
             NewEventRequest(

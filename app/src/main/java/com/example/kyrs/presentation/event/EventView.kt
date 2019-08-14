@@ -20,4 +20,7 @@ interface EventView : BaseView {
 
     fun setButtonUnregister()
     fun setButtonRegister()
+    fun setButtonDelete()
+
+    fun finish()
 }
