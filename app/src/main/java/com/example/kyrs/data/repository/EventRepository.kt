@@ -7,7 +7,6 @@ import com.example.kyrs.data.sharedPref.AuthHolder
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import okhttp3.Response
 import javax.inject.Inject
 
 class EventRepository @Inject constructor(
@@ -26,7 +25,7 @@ class EventRepository @Inject constructor(
             .observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun register(id: Int): Single<Event>{
+    fun register(id: Int): Single<Event> {
         return api.eventRegister(id, authHolder.userId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

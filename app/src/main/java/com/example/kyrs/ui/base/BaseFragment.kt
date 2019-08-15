@@ -15,7 +15,6 @@ import com.example.kyrs.utils.showToast
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-07-10
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 abstract class BaseFragment : MvpAppCompatFragment(), BaseView {
 
@@ -25,8 +24,10 @@ abstract class BaseFragment : MvpAppCompatFragment(), BaseView {
         context?.showToast(message)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View =
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View =
         inflater.inflate(layoutRes, container, false)
 
     override fun onCreate(savedInstanceState: Bundle?) {

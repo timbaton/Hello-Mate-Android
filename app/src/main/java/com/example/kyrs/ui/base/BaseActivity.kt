@@ -11,7 +11,6 @@ import com.example.kyrs.presentation.base.BaseView
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-05-31
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 abstract class BaseActivity : com.example.kyrs.migratedMoxy.MvpAppCompatActivity(), BaseView {
 

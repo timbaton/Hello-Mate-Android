@@ -29,7 +29,6 @@ import java.util.*
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-08-12
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 class NewEventActivity : BaseActivity(), NewEventView {
 
@@ -89,7 +88,6 @@ class NewEventActivity : BaseActivity(), NewEventView {
                 presenter.onCancelClicked()
             }
         }
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

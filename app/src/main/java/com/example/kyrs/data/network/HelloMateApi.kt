@@ -7,12 +7,10 @@ import com.example.kyrs.data.entity.response.LoginResponse
 import com.example.kyrs.data.entity.response.ProfileResponse
 import com.example.kyrs.data.entity.response.User
 import io.reactivex.Single
-import okhttp3.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
-
 
 /**
  * Project Kyrs
@@ -21,8 +19,8 @@ import retrofit2.http.Query
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-06-01
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
+
 interface HelloMateApi {
 
     @GET("/rest/users")
@@ -50,7 +48,7 @@ interface HelloMateApi {
     fun eventUnsubscribe(@Query(value = "event_id") event_id: Int, @Query(value = "user_id") user_id: Int): Single<Event>
 
     @POST("/rest/event")
-    fun addEvent(@Body event: NewEventRequest,@Query(value = "user_id") id: Int): Single<Event>
+    fun addEvent(@Body event: NewEventRequest, @Query(value = "user_id") id: Int): Single<Event>
 
     @POST("/rest/event_delete")
     fun deleteEvent(@Query(value = "event_id") id: Int): Single<Boolean>

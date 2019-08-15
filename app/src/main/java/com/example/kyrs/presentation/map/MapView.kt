@@ -10,13 +10,11 @@ import com.google.android.gms.maps.model.LatLng
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-08-13
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 interface MapView : BaseView {
 
     fun moveCamera(curLocation: LatLng)
     fun putMarker(position: LatLng)
-
 
     fun askPermission()
 

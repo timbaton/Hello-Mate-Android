@@ -1,9 +1,8 @@
 package com.example.kyrs.ui.plans
 
-import androidx.recyclerview.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.example.kyrs.R
 import com.example.kyrs.data.entity.Event
 import com.example.kyrs.presentation.base.BaseListAdapter
@@ -16,9 +15,8 @@ import kotlinx.android.synthetic.main.item_event.view.*
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-08-07
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
-class EventListAdapter (private var onClick: (event: Event) -> Unit): BaseListAdapter<Event>() {
+class EventListAdapter(private var onClick: (event: Event) -> Unit) : BaseListAdapter<Event>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_event, parent, false)

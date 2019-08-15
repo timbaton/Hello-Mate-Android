@@ -3,6 +3,7 @@ package com.example.kyrs.ui.event
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -30,9 +31,6 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_event.*
 import kotlinx.android.synthetic.main.toolbar.*
 import toothpick.Toothpick
-import android.view.MotionEvent
-
-
 
 
 /**
@@ -42,7 +40,6 @@ import android.view.MotionEvent
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-08-11
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 class EventActivity : BaseActivity(), EventView, OnMapReadyCallback {
 

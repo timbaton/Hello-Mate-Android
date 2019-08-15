@@ -12,7 +12,6 @@ import io.reactivex.disposables.Disposable
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-05-31
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 abstract class BasePresenter<view : MvpView> : MvpPresenter<view>() {
 

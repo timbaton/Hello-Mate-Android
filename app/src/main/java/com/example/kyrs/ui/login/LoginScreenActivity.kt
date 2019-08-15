@@ -7,14 +7,12 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.kyrs.R
 import com.example.kyrs.di.Scopes
-import com.example.kyrs.ui.base.BaseActivity
 import com.example.kyrs.presentation.login.LoginScreenPresenter
 import com.example.kyrs.presentation.login.LoginScreenView
+import com.example.kyrs.ui.base.BaseActivity
 import com.example.kyrs.ui.main.MainContainerActivity
 import com.example.kyrs.ui.registration.RegistrationActivity
-import com.example.kyrs.utils.visible
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.toolbar.*
 import toothpick.Toothpick
 
 /**
@@ -24,7 +22,6 @@ import toothpick.Toothpick
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-05-31
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 class LoginScreenActivity : BaseActivity(), LoginScreenView {
 

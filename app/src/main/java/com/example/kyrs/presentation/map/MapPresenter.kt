@@ -13,7 +13,6 @@ import javax.inject.Inject
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-08-13
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 @InjectViewState
 class MapPresenter @Inject constructor(
@@ -22,7 +21,6 @@ class MapPresenter @Inject constructor(
 
     var mLocationPermissionGranted = false
     var location: LatLng = LatLng(-34.0, 151.0)
-
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()

@@ -1,10 +1,7 @@
-package com.example.kyrs.ui.plans
+package com.example.kyrs.ui.search
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.kyrs.R
@@ -14,6 +11,7 @@ import com.example.kyrs.presentation.search.SearchPresenter
 import com.example.kyrs.presentation.search.SearchView
 import com.example.kyrs.ui.base.BaseFragment
 import com.example.kyrs.ui.event.EventActivity
+import com.example.kyrs.ui.plans.EventListAdapter
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_plans.*
 import toothpick.Toothpick
@@ -25,7 +23,6 @@ import toothpick.Toothpick
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-07-10
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 class SearchFragment : BaseFragment(), SearchView {
 
@@ -60,7 +57,6 @@ class SearchFragment : BaseFragment(), SearchView {
         rvList.setHasFixedSize(true)
         rvList.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
         rvList.adapter = adapter
-
     }
 
     override fun showEvents(events: List<Event>?) {

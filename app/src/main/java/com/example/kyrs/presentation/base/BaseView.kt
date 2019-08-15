@@ -9,7 +9,6 @@ import com.arellomobile.mvp.MvpView
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-05-31
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 interface BaseView : MvpView {
 

@@ -13,12 +13,11 @@ import javax.inject.Inject
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-07-10
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 @InjectViewState
 class PlansPresenter @Inject constructor(
     private val eventRepository: EventRepository
-): BasePresenter<PlansView>() {
+) : BasePresenter<PlansView>() {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -30,7 +29,7 @@ class PlansPresenter @Inject constructor(
         eventRepository.getUsersEvents()
             .subscribe({
                 viewState.showEvents(it)
-            },{
+            }, {
                 viewState.showMessage(it.message.toString())
             }).connect()
     }
@@ -46,7 +45,7 @@ class PlansPresenter @Inject constructor(
             }
             .subscribe({
                 viewState.updateEvents(it)
-            },{
+            }, {
                 viewState.showMessage(it.message.toString())
             }).connect()
     }

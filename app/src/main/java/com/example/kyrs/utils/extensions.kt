@@ -2,7 +2,6 @@ package com.example.kyrs.utils
 
 import android.content.Context
 import android.graphics.Color
-import androidx.core.content.ContextCompat
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.TextPaint
@@ -11,6 +10,7 @@ import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 
 /**
  * Project Kyrs
@@ -19,16 +19,19 @@ import android.widget.Toast
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-06-02
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 
-fun Context.showToast(message: String, duration: Int = Toast.LENGTH_SHORT,
-                      otherContext: Context? = null) {
+fun Context.showToast(
+    message: String, duration: Int = Toast.LENGTH_SHORT,
+    otherContext: Context? = null
+) {
     Toast.makeText(otherContext ?: this, message, duration).show()
 }
 
-fun TextView.setSpan(text: String, spannableText: String, spannableTextColor: Int,
-                     isSpannableTextUnderline: Boolean, onClick: () -> Unit) {
+fun TextView.setSpan(
+    text: String, spannableText: String, spannableTextColor: Int,
+    isSpannableTextUnderline: Boolean, onClick: () -> Unit
+) {
     val context = this.context
 
     val ss = SpannableString(text)

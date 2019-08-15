@@ -13,13 +13,12 @@ import javax.inject.Inject
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-08-06
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 @InjectViewState
 class ProfilePresenter @Inject constructor(
     private var profileRepository: ProfileRepository,
     @ServerPath private var serverPath: String
-): BasePresenter<ProfileView>() {
+) : BasePresenter<ProfileView>() {
 
     var userId = 0
 
@@ -33,7 +32,7 @@ class ProfilePresenter @Inject constructor(
         profileRepository.loadProfile(userId)
             .subscribe({
                 viewState.fillProfileData(it, serverPath)
-            },{
+            }, {
                 viewState.showMessage(it.message.toString())
             }).connect()
     }

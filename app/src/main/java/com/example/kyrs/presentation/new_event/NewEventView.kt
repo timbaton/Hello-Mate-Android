@@ -11,7 +11,6 @@ import java.util.*
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-08-12
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 interface NewEventView : BaseView {
 

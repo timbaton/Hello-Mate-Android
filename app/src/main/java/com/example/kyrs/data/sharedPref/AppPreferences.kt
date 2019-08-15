@@ -10,7 +10,6 @@ import javax.inject.Inject
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-07-09
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 class AppPreferences @Inject constructor(private val context: Context) : AuthHolder {
 
@@ -30,5 +29,4 @@ class AppPreferences @Inject constructor(private val context: Context) : AuthHol
         }
 
     private fun getPrefs() = context.getSharedPreferences(prefsName, Context.MODE_PRIVATE)
-
 }

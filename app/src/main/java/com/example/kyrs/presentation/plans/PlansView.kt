@@ -10,7 +10,6 @@ import com.example.kyrs.presentation.base.BaseView
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-07-10
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 interface PlansView : BaseView {
 

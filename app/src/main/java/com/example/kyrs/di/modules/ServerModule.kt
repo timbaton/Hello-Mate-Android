@@ -15,10 +15,8 @@ import toothpick.config.Module
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-05-29
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
-class ServerModule(baseUrl: String, imageUrl: String): Module() {
-
+class ServerModule(baseUrl: String, imageUrl: String) : Module() {
     init {
 
         bind(String::class.java).withName(ServerPath::class.java).toInstance(baseUrl)

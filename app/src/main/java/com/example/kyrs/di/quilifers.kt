@@ -9,9 +9,9 @@ import javax.inject.Qualifier
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-06-02
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 @Qualifier
 annotation class ServerPath
+
 @Qualifier
 annotation class ImagePath

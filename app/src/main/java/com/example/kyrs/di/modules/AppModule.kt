@@ -12,10 +12,8 @@ import toothpick.config.Module
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-07-09
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
-class AppModule(private val context: Context) : Module() {
-
+class AppModule(context: Context) : Module() {
     init {
         bind(Context::class.java).toInstance(context)
 

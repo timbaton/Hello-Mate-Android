@@ -1,11 +1,10 @@
 package com.example.kyrs.ui.plans
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.kyrs.R
@@ -28,7 +27,6 @@ import toothpick.Toothpick
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-07-10
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 class PlansFragment : BaseFragment(), PlansView {
 
@@ -82,7 +80,6 @@ class PlansFragment : BaseFragment(), PlansView {
         rvList.setHasFixedSize(true)
         rvList.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
         rvList.adapter = adapter
-
     }
 
     override fun showEvents(events: List<Event>?) {

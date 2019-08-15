@@ -3,14 +3,14 @@ package com.example.kyrs.ui.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.Fragment
 import com.example.kyrs.R
 import com.example.kyrs.presentation.main.MainScreenView
 import com.example.kyrs.ui.base.BaseActivity
 import com.example.kyrs.ui.plans.PlansFragment
+import com.example.kyrs.ui.search.SearchFragment
 import com.example.kyrs.ui.profile.ProfileFragment
-import com.example.kyrs.ui.plans.SearchFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 /**
  * Project HelloMate
@@ -19,7 +19,6 @@ import com.example.kyrs.ui.plans.SearchFragment
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-07-09
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 class MainContainerActivity : BaseActivity(), MainScreenView {
 

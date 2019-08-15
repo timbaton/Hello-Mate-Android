@@ -1,10 +1,10 @@
 package com.example.kyrs.ui.dialog
 
-import androidx.fragment.app.DialogFragment
 import android.R
 import android.app.Dialog
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.DialogFragment
 
 
 /**
@@ -14,11 +14,10 @@ import androidx.appcompat.app.AlertDialog
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-08-14
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 class SuccessDialog constructor(
     private var onSuccess: () -> Unit
-): DialogFragment() {
+) : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         // Use the Builder class for convenient dialog construction

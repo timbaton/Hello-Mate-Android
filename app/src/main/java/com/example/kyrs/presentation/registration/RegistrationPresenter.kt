@@ -12,14 +12,13 @@ import javax.inject.Inject
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-07-09
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 @InjectViewState
 class RegistrationPresenter @Inject constructor(
     private val authRepository: AuthRepository
 ) : BasePresenter<RegistrationView>() {
 
-    fun onBackCliecked() {
+    fun onBackClicked() {
         viewState.back()
     }
 

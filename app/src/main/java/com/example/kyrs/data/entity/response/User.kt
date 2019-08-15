@@ -11,19 +11,19 @@ import com.google.gson.annotations.SerializedName
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-06-01
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
+
 data class User(
     var id: Int,
     var name: String,
     var surname: String,
-    var login : String,
-    var password : String,
-    var avatar : Image,
-    var mail : String,
-    var phone : String,
-    var hobbies : String,
-    var age : Int,
+    var login: String,
+    var password: String,
+    var avatar: Image,
+    var mail: String,
+    var phone: String,
+    var hobbies: String,
+    var age: Int,
 
     @SerializedName("tokens")
     @Expose

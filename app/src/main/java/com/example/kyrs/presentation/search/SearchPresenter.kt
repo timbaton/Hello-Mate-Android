@@ -13,7 +13,6 @@ import javax.inject.Inject
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-08-10
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 @InjectViewState
 class SearchPresenter @Inject constructor(
@@ -36,7 +35,7 @@ class SearchPresenter @Inject constructor(
             }
             .subscribe({
                 viewState.showEvents(it)
-            },{
+            }, {
                 viewState.showMessage(it.message.toString())
             }).connect()
     }
@@ -52,7 +51,7 @@ class SearchPresenter @Inject constructor(
             }
             .subscribe({
                 viewState.updateEvents(it)
-            },{
+            }, {
                 viewState.showMessage(it.message.toString())
             }).connect()
     }

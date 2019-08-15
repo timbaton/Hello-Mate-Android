@@ -9,7 +9,6 @@ import com.example.kyrs.presentation.base.BaseView
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-06-03
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 interface SplashScreenView : BaseView {
 
