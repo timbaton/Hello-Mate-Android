@@ -142,7 +142,7 @@ class EventActivity : BaseActivity(), EventView, OnMapReadyCallback {
         val name = event.owner.name + " " + event.owner.surname
         tvName.text = name
 
-        val url = "$imagePath${event.owner.avatar.path}"
+        val url = "$imagePath${event.owner.avatar?.path}"
         Glide.with(this)
             .load(url)
             .transform(CircleCrop())
@@ -169,7 +169,7 @@ class EventActivity : BaseActivity(), EventView, OnMapReadyCallback {
                         it.height = (50 * scale + 0.5f).toInt()
                     }
 
-                    val urlParticipant = "$imagePath${user.avatar.path}"
+                    val urlParticipant = "$imagePath${user.avatar?.path}"
                     Glide.with(this@EventActivity)
                         .load(urlParticipant)
                         .transform(CircleCrop())

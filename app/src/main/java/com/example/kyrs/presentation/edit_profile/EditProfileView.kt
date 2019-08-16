@@ -1,5 +1,7 @@
 package com.example.kyrs.presentation.edit_profile
 
+import android.net.Uri
+import com.example.kyrs.data.entity.response.ProfileResponse
 import com.example.kyrs.presentation.base.BaseView
 
 /**
@@ -12,4 +14,10 @@ import com.example.kyrs.presentation.base.BaseView
  */
 interface EditProfileView : BaseView {
 
+    fun fillUserData(user: ProfileResponse)
+
+    fun onBackPressed()
+
+    fun showGallery(galleryRequest: Int)
+    fun setImage(selectedImage: Uri?)
 }

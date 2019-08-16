@@ -14,6 +14,7 @@ import com.example.kyrs.di.Scopes
 import com.example.kyrs.presentation.profile.ProfilePresenter
 import com.example.kyrs.presentation.profile.ProfileView
 import com.example.kyrs.ui.base.BaseActivity
+import com.example.kyrs.ui.editProfile.EditProfileActivity
 import com.example.kyrs.ui.login.LoginScreenActivity
 import com.example.kyrs.utils.visible
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -84,5 +85,9 @@ class ProfileActivity : BaseActivity(), ProfileView {
     override fun openLoginActivity() {
         startActivity(LoginScreenActivity.getIntent(this))
         finish()
+    }
+
+    override fun openEditProfileActivity() {
+        startActivity(EditProfileActivity.getIntent(this))
     }
 }

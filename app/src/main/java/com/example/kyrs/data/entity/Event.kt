@@ -1,6 +1,6 @@
 package com.example.kyrs.data.entity
 
-import com.example.kyrs.data.entity.response.User
+import com.example.kyrs.data.entity.response.ProfileResponse
 
 /**
  * Project HelloMate
@@ -17,6 +17,6 @@ data class Event(
     val location: Location,
     val date: String,
     val images: List<Image>,
-    val owner: User,
-    val participants: List<User>
+    val owner: ProfileResponse,
+    val participants: List<ProfileResponse>
 )

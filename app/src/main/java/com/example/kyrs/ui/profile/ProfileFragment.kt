@@ -12,6 +12,7 @@ import com.example.kyrs.di.Scopes
 import com.example.kyrs.presentation.profile.ProfilePresenter
 import com.example.kyrs.presentation.profile.ProfileView
 import com.example.kyrs.ui.base.BaseFragment
+import com.example.kyrs.ui.editProfile.EditProfileActivity
 import com.example.kyrs.ui.login.LoginScreenActivity
 import com.example.kyrs.utils.visible
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -46,6 +47,9 @@ class ProfileFragment : BaseFragment(), ProfileView {
             presenter.onExitClicked()
         }
 
+        tvEdit.setOnClickListener {
+            presenter.onEditClicked()
+        }
         toolbar.visible(false)
     }
 
@@ -68,5 +72,9 @@ class ProfileFragment : BaseFragment(), ProfileView {
 
     override fun onBackPressed() {
         activity?.onBackPressed()
+    }
+
+    override fun openEditProfileActivity() {
+        startActivity(EditProfileActivity.getIntent(context!!))
     }
 }

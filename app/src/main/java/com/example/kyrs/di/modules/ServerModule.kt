@@ -1,6 +1,9 @@
 package com.example.kyrs.di.modules
 
 import com.example.kyrs.data.network.HelloMateApi
+import com.example.kyrs.data.repository.AuthRepository
+import com.example.kyrs.data.repository.EventRepository
+import com.example.kyrs.data.repository.ProfileRepository
 import com.example.kyrs.di.ImagePath
 import com.example.kyrs.di.ServerPath
 import com.example.kyrs.di.providers.ApiProvider
@@ -17,6 +20,7 @@ import toothpick.config.Module
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-05-29
  */
 class ServerModule(baseUrl: String, imageUrl: String) : Module() {
+
     init {
 
         bind(String::class.java).withName(ServerPath::class.java).toInstance(baseUrl)
@@ -25,5 +29,10 @@ class ServerModule(baseUrl: String, imageUrl: String) : Module() {
 //        Retrofit
         bind(OkHttpClient::class.java).toProvider(OkHttpClientProvider::class.java).providesSingletonInScope()
         bind(HelloMateApi::class.java).toProvider(ApiProvider::class.java).providesSingletonInScope()
+
+        //Repositories
+        bind(AuthRepository::class.java).singletonInScope()
+        bind(EventRepository::class.java).singletonInScope()
+        bind(ProfileRepository::class.java).singletonInScope()
     }
 }

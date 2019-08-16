@@ -8,9 +8,12 @@ import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 
 /**
  * Project Kyrs
@@ -65,4 +68,11 @@ fun View.visible(isVisible: Boolean) {
     } else {
         this.visibility = View.GONE
     }
+}
+
+fun ImageView.loadImage(itemView: View, url: String) {
+    Glide.with(itemView)
+        .load(url)
+        .transform(CircleCrop())
+        .into(this)
 }

@@ -3,7 +3,7 @@
         android:color="@color/clickable_effect">
     <item>
         <shape android:shape="oval">
-            <solid android:color="@color/white_70"/>
+            <solid android:color="@color/colorPrimary"/>
         </shape>
     </item>
 

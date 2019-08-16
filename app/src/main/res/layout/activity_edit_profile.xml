@@ -14,7 +14,7 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="vertical"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
             <LinearLayout
                     android:layout_width="match_parent"
@@ -25,8 +25,9 @@
                 <FrameLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="80dp"
-                        android:layout_gravity="center_horizontal">
+                        android:layout_marginTop="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="40dp">
 
                     <ImageView
                             android:id="@+id/ivAvatar"
@@ -41,25 +42,12 @@
                             android:id="@+id/btnAddAvatar"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
+                            android:elevation="4dp"
                             android:layout_gravity="bottom|end"
                             android:background="@drawable/bg_button_add"
                             android:src="@drawable/ic_plans_24dp_non_active"
                             />
                 </FrameLayout>
-
-
-                <TextView
-                        android:id="@+id/tvName"
-                        android:gravity="center"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginBottom="52dp"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:layout_width="match_parent"
-                        android:textColor="@color/white"
-                        android:text="Oлег Валерьевич"
-                        android:layout_height="wrap_content"/>
-
             </LinearLayout>
 
             <LinearLayout
@@ -67,6 +55,7 @@
                     android:background="@drawable/bg_clickable_white_8dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginStart="16dp"
+                    android:layout_marginBottom="12dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -79,8 +68,10 @@
                         android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etName"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:inputType="textPersonName"
                             android:hint="Имя"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,11 +83,43 @@
                         android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etSurname"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:inputType="textPersonName"
                             android:hint="Фамилия"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etMail"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="textWebEmailAddress"
+                            android:hint="e-Mail"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="phone"
+                            android:hint="Телефон"/>
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -7,6 +7,7 @@ import com.example.kyrs.data.entity.Event
 import com.example.kyrs.di.ImagePath
 import com.example.kyrs.di.Scopes
 import com.example.kyrs.presentation.base.BaseListViewHolder
+import com.example.kyrs.utils.loadImage
 import kotlinx.android.synthetic.main.item_event.view.*
 import toothpick.Toothpick
 import java.util.*
@@ -27,7 +28,7 @@ class EventsViewHolder(itemView: View) : BaseListViewHolder<Event>(itemView) {
 
     @Inject
     @field: ImagePath
-    lateinit var serverPath: String
+    lateinit var imagePath: String
 
     override fun bind(item: Event) {
 
@@ -37,11 +38,8 @@ class EventsViewHolder(itemView: View) : BaseListViewHolder<Event>(itemView) {
         itemView.tvTime.text = getTime(item)
 
 
-        val url = "$serverPath${item.owner.avatar.path}"
-        Glide.with(itemView)
-            .load(url)
-            .transform(CircleCrop())
-            .into(itemView.ivAvatar)
+        val url = "$imagePath${item.owner.avatar?.path}"
+        itemView.ivAvatar.loadImage(itemView, url)
     }
 
     private fun getTime(item: Event): String {

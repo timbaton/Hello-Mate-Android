@@ -1,16 +1,17 @@
 package com.example.kyrs.data.network
 
 import com.example.kyrs.data.entity.Event
+import com.example.kyrs.data.entity.request.EditUserRequest
 import com.example.kyrs.data.entity.request.LoginRequest
 import com.example.kyrs.data.entity.request.NewEventRequest
 import com.example.kyrs.data.entity.response.LoginResponse
 import com.example.kyrs.data.entity.response.ProfileResponse
-import com.example.kyrs.data.entity.response.User
 import io.reactivex.Single
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.ResponseBody
+import retrofit2.http.*
+
 
 /**
  * Project Kyrs
@@ -23,9 +24,6 @@ import retrofit2.http.Query
 
 interface HelloMateApi {
 
-    @GET("/rest/users")
-    fun getUsers(): Single<User>
-
     @GET("/rest/users/")
     fun getProfile(@Query(value = "id") id: Int): Single<ProfileResponse>
 
@@ -34,6 +32,14 @@ interface HelloMateApi {
 
     @POST("/rest/register")
     fun register(@Body loginRequest: LoginRequest): Single<LoginResponse>
+
+    @POST("/rest/editUser")
+    fun editUser(@Body editUserRequest: EditUserRequest): Single<ProfileResponse>
+
+    @Multipart
+    @POST("/rest/editUser/avatar")
+    fun uploadAvatar(@Query(value = "id") user_id: Int, @Part file: MultipartBody.Part): Single<ProfileResponse>
+
 
     @GET("/rest/event")
     fun getUserEvents(@Query(value = "user_id") id: Int): Single<List<Event>>

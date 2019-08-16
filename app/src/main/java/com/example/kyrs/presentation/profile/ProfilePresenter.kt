@@ -32,6 +32,7 @@ class ProfilePresenter @Inject constructor(
         profileRepository.loadProfile(userId)
             .subscribe({
                 viewState.fillProfileData(it, serverPath)
+                profileRepository.saveUserLocal(it)
             }, {
                 viewState.showMessage(it.message.toString())
             }).connect()
@@ -45,5 +46,9 @@ class ProfilePresenter @Inject constructor(
 
     fun onBackPressed() {
         viewState.onBackPressed()
+    }
+
+    fun onEditClicked() {
+        viewState.openEditProfileActivity()
     }
 }

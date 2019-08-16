@@ -15,6 +15,7 @@ interface ProfileView : BaseView {
 
     fun fillProfileData(data: ProfileResponse?, serverPath: String)
 
+    fun openEditProfileActivity()
     fun openLoginActivity()
 
     fun onBackPressed()
