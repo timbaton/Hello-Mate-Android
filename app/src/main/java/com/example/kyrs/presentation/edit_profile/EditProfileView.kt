@@ -16,8 +16,9 @@ interface EditProfileView : BaseView {
 
     fun fillUserData(user: ProfileResponse)
 
-    fun onBackPressed()
-
     fun showGallery(galleryRequest: Int)
     fun setImage(selectedImage: Uri?)
+
+    fun onBackPressed()
+    fun finishActivityOk()
 }

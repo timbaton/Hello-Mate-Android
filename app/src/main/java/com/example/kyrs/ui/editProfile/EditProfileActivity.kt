@@ -1,6 +1,7 @@
 package com.example.kyrs.ui.editProfile
 
 import android.Manifest
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -140,5 +141,11 @@ class EditProfileActivity : BaseActivity(), EditProfileView {
         } catch (e: IOException) {
             Log.i("TAG", "Some exception $e")
         }
+    }
+
+    override fun finishActivityOk() {
+        val data = Intent()
+        setResult(Activity.RESULT_OK, data)
+        finish()
     }
 }

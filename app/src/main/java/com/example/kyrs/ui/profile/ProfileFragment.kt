@@ -1,5 +1,6 @@
 package com.example.kyrs.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -31,6 +32,10 @@ class ProfileFragment : BaseFragment(), ProfileView {
 
     override val layoutRes: Int = R.layout.fragment_profile
 
+    companion object {
+        val REQUEST_EDIT_PROFILE = 133
+    }
+
     @InjectPresenter
     lateinit var presenter: ProfilePresenter
 
@@ -51,6 +56,10 @@ class ProfileFragment : BaseFragment(), ProfileView {
             presenter.onEditClicked()
         }
         toolbar.visible(false)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        presenter.onActivityResult(requestCode, resultCode)
     }
 
     override fun fillProfileData(data: ProfileResponse?, serverPath: String) {
@@ -75,6 +84,6 @@ class ProfileFragment : BaseFragment(), ProfileView {
     }
 
     override fun openEditProfileActivity() {
-        startActivity(EditProfileActivity.getIntent(context!!))
+        startActivityForResult(EditProfileActivity.getIntent(context!!), REQUEST_EDIT_PROFILE)
     }
 }

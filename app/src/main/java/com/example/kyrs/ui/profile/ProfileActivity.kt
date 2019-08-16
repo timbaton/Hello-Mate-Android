@@ -33,6 +33,7 @@ class ProfileActivity : BaseActivity(), ProfileView {
 
     override var res: Int? = R.layout.fragment_profile
 
+
     companion object {
         private var USER_ID = "userId"
 

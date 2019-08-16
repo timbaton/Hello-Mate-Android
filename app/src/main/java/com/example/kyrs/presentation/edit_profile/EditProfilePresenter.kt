@@ -90,7 +90,8 @@ class EditProfilePresenter @Inject constructor(
 
         profileRepository.uploadAvatar(body)
             .subscribe({
-                viewState.showMessage("ava loaded!")
+                viewState.fillUserData(it)
+                viewState.onBackPressed()
             }, {
                 viewState.showMessage(it.message.toString())
             }).connect()
@@ -101,7 +102,8 @@ class EditProfilePresenter @Inject constructor(
 
         profileRepository.editUser(user)
             .subscribe({
-                viewState.showMessage(it.name.toString())
+                viewState.fillUserData(it)
+                viewState.finishActivityOk()
             }, {
                 viewState.showMessage(it.message.toString())
             }).connect()

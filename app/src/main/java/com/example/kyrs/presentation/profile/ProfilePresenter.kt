@@ -1,9 +1,13 @@
 package com.example.kyrs.presentation.profile
 
+import android.app.Activity
 import com.arellomobile.mvp.InjectViewState
 import com.example.kyrs.data.repository.ProfileRepository
 import com.example.kyrs.di.ServerPath
 import com.example.kyrs.presentation.base.BasePresenter
+import com.example.kyrs.ui.plans.PlansFragment
+import com.example.kyrs.ui.plans.ProfileActivity
+import com.example.kyrs.ui.profile.ProfileFragment
 import javax.inject.Inject
 
 /**
@@ -50,5 +54,11 @@ class ProfilePresenter @Inject constructor(
 
     fun onEditClicked() {
         viewState.openEditProfileActivity()
+    }
+
+    fun onActivityResult(requestCode: Int, resultCode: Int) {
+        if (ProfileFragment.REQUEST_EDIT_PROFILE == requestCode && resultCode == Activity.RESULT_OK) {
+           loadProfile(userId)
+        }
     }
 }
