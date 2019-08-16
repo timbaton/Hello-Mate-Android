@@ -27,7 +27,7 @@ class RegistrationPresenter @Inject constructor(
             authRepository.saveAuthData(it.userId, it.token)
             viewState.openMainScreen()
         }, {
-            viewState.showMessage("something is wrong")
+            viewState.showMessage(it.message.toString())
         }).connect()
     }
 }

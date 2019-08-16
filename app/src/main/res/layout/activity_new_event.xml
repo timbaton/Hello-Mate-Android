@@ -26,13 +26,13 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginTop="27dp"
                     android:orientation="vertical"
-                    android:background="@drawable/bg_clickable_white_8dp"
+                    android:background="@drawable/bg_white_8dp"
                     >
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Название"
+                        android:text="@string/event_title"
                         android:textColor="@color/text_gray"
                         android:layout_marginTop="12dp"
                         android:layout_marginStart="14dp"
@@ -45,7 +45,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginStart="14dp"
                         android:layout_marginEnd="14dp"
-                        android:hint="придумайте название"
+                        android:hint="@string/title_hint"
                         android:gravity="top"
                         android:background="@color/white"
                         android:paddingStart="14dp"
@@ -64,7 +64,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginTop="27dp"
                     android:orientation="horizontal"
-                    android:background="@drawable/bg_clickable_white_8dp"
+                    android:background="@drawable/bg_white_8dp"
                     >
 
                 <LinearLayout
@@ -72,13 +72,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:paddingStart="7dp"
+                        android:paddingEnd="7dp"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Дата"
+                            android:text="@string/date"
                             android:textColor="@color/text_gray"
                             android:layout_marginTop="12dp"
                             android:layout_marginStart="7dp"
@@ -92,7 +93,6 @@
                             android:paddingTop="24dp"
                             android:paddingBottom="4dp"
                             android:paddingStart="7dp"
-                            android:inputType="date"
                             android:paddingEnd="8dp"
                             android:textSize="18sp"
                             android:textColor="@color/text_blue_dark"
@@ -100,14 +100,6 @@
                             />
 
                     <include layout="@layout/separate_horizontal_purple"/>
-
-                    <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginStart="8dp"
-                            android:text="сейчас"
-                            />
                 </LinearLayout>
 
                 <TimePicker
@@ -125,13 +117,13 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginTop="27dp"
                     android:orientation="vertical"
-                    android:background="@drawable/bg_clickable_white_8dp"
+                    android:background="@drawable/bg_white_8dp"
                     >
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Локация"
+                        android:text="@string/location"
                         android:textColor="@color/text_gray"
                         android:layout_marginTop="12dp"
                         android:layout_marginStart="14dp"
@@ -152,6 +144,7 @@
                             android:paddingTop="24dp"
                             android:paddingBottom="4dp"
                             android:paddingStart="7dp"
+                            android:paddingEnd="7dp"
                             android:textSize="18sp"
                             android:textColor="@color/text_blue_dark"
                             tool:text="4244.124, 2444.1233"
@@ -182,13 +175,13 @@
                     android:layout_marginTop="27dp"
                     android:layout_marginBottom="14dp"
                     android:orientation="vertical"
-                    android:background="@drawable/bg_clickable_white_8dp"
+                    android:background="@drawable/bg_white_8dp"
                     >
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Описание"
+                        android:text="@string/description"
                         android:textColor="@color/text_gray"
                         android:layout_marginTop="12dp"
                         android:layout_marginStart="14dp"
@@ -202,7 +195,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginStart="14dp"
                         android:layout_marginEnd="14dp"
-                        android:hint="сообщение"
+                        android:hint="@string/message"
                         android:paddingTop="14dp"
                         android:gravity="top"
                         android:paddingStart="14dp"

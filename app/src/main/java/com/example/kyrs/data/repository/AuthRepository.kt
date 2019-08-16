@@ -17,7 +17,6 @@ import javax.inject.Inject
  *
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-07-07
- * Copyright © 2018 SuperEgo. All rights reserved.
  */
 class AuthRepository @Inject constructor(
     private var api: HelloMateApi,

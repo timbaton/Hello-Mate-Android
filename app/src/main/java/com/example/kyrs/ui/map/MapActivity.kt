@@ -140,7 +140,7 @@ class MapActivity : BaseActivity(), OnMapReadyCallback, MapView {
             MarkerOptions()
                 .position(position ?: LatLng(-34.0, 151.0))
                 .draggable(true)
-                .title("Location")
+                .title(resources.getString(R.string.location))
         )
     }
 

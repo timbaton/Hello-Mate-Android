@@ -132,7 +132,7 @@ class EventActivity : BaseActivity(), EventView, OnMapReadyCallback {
         mMap.addMarker(
             MarkerOptions()
                 .position(location)
-                .title("Location")
+                .title(getString(R.string.location))
         )
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(location))
@@ -183,7 +183,7 @@ class EventActivity : BaseActivity(), EventView, OnMapReadyCallback {
     }
 
     override fun setButtonUnregister() {
-        btnRegister.text = "Отписаться"
+        btnRegister.text = getString(R.string.unsubscribe)
 
         btnRegister.setOnClickListener {
             presenter.onUnsubscribeClicked()
@@ -191,7 +191,7 @@ class EventActivity : BaseActivity(), EventView, OnMapReadyCallback {
     }
 
     override fun setButtonRegister() {
-        btnRegister.text = "Учавствовать!"
+        btnRegister.text = getString(R.string.participate)
 
         btnRegister.setOnClickListener {
             presenter.onRegisterClicked()
@@ -199,7 +199,7 @@ class EventActivity : BaseActivity(), EventView, OnMapReadyCallback {
     }
 
     override fun setButtonDelete() {
-        btnRegister.text = "Удалить"
+        btnRegister.text = getString(R.string.delete)
 
         btnRegister.setOnClickListener {
             presenter.onDeleteClicked()

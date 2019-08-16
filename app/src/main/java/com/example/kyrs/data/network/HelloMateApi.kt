@@ -40,7 +40,6 @@ interface HelloMateApi {
     @POST("/rest/editUser/avatar")
     fun uploadAvatar(@Query(value = "id") user_id: Int, @Part file: MultipartBody.Part): Single<ProfileResponse>
 
-
     @GET("/rest/event")
     fun getUserEvents(@Query(value = "user_id") id: Int): Single<List<Event>>
 

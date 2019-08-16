@@ -1,4 +1,4 @@
-package com.example.kyrs.ui.editProfile
+package com.example.kyrs.ui.edit_profile
 
 import android.Manifest
 import android.app.Activity
@@ -133,7 +133,7 @@ class EditProfileActivity : BaseActivity(), EditProfileView {
         presenter.onActivityResult(requestCode, resultCode, data)
     }
 
-    override fun setImage(selectedImage: Uri?) {
+    override fun setImage(selectedImage: Uri) {
         try {
             val bitmap =
                 MediaStore.Images.Media.getBitmap(this.contentResolver, selectedImage)

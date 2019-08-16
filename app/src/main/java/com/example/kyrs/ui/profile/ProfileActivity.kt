@@ -14,7 +14,7 @@ import com.example.kyrs.di.Scopes
 import com.example.kyrs.presentation.profile.ProfilePresenter
 import com.example.kyrs.presentation.profile.ProfileView
 import com.example.kyrs.ui.base.BaseActivity
-import com.example.kyrs.ui.editProfile.EditProfileActivity
+import com.example.kyrs.ui.edit_profile.EditProfileActivity
 import com.example.kyrs.ui.login.LoginScreenActivity
 import com.example.kyrs.utils.visible
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -72,7 +72,8 @@ class ProfileActivity : BaseActivity(), ProfileView {
     }
 
     override fun fillProfileData(data: ProfileResponse?, serverPath: String) {
-        tvName.text = data?.name + " " + data?.surname
+        val name = data?.name + " " + data?.surname
+        tvName.text = name
         tvMail.text = data?.mail
         tvPhone.text = data?.phone
 

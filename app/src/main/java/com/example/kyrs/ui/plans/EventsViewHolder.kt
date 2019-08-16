@@ -46,7 +46,6 @@ class EventsViewHolder(itemView: View) : BaseListViewHolder<Event>(itemView) {
 
         var dateString = item.date
 
-//        val date2 = timestamp.time
         val date1 = Date().time
         val date2 = dateString.toLong()
 

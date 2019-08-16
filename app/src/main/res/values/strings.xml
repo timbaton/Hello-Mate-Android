@@ -1,13 +1,59 @@
 <resources>
-    <string name="app_name">Kyrs</string>
+    <string name="app_name">Hello, mate</string>
+    <string name="Quote">Making friends is easy!</string>
+
+    <!--Map-->
     <string name="title_activity_maps">Map</string>
 
     <!--event-->
     <string name="event_open_map">выбрать на карте</string>
-    <string name="title_activity_maps2">Map</string>
-    <string name="title_activity_map">Map</string>
     <string name="open_profile">Перейти в профиль</string>
+    <string name="unsubscribe">Отписаться</string>
+    <string name="delete">Удалить</string>
+    <string name="event">Событие</string>
+    <string name="participants">Участники:</string>
+    <string name="event_location">Геолокация:</string>
+    <string name="participate">Учавствовать!</string>
 
     <!--utils-->
     <string name="success">Готово!</string>
+    <string name="list_empty">List is empty</string>
+    <string name="error">Error</string>
+    <string name="location">Location</string>
+
+    <!--map-->
+    <string name="title_activity_map">Map</string>
+
+    <!--edit profile-->
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="mail">e-Mail</string>
+    <string name="phone">Телефон</string>
+
+    <!--login-->
+    <string name="welcome">Добро пожаловать в дружеское сообщество!</string>
+    <string name="login">login</string>
+    <string name="password">password</string>
+    <string name="enter">Войти</string>
+    <string name="new_user">Я новый пользователь</string>
+    <string name="register">Зарегистрироваться</string>
+
+    <!--new event-->
+    <string name="event_title">Название</string>
+    <string name="title_hint">придумайте название</string>
+    <string name="date">Дата</string>
+    <string name="now">сейчас</string>
+    <string name="description">Описание</string>
+    <string name="message">сообщение</string>
+
+    <!--edit profile-->
+    <string name="edit">Редактировать профиль</string>
+    <string name="exit">Выйти</string>
+
+    <!--toolbar-->
+    <string name="add">Добавить</string>
+    <string name="back">Назад</string>
+    <string name="cancel">Отмена</string>
+    <string name="done">Готово</string>
+    
 </resources>

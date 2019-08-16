@@ -82,6 +82,7 @@ class NewEventPresenter @Inject constructor(
 
     fun onActivityResult(resultCode: Int, data: Intent?) {
         // Make sure the request was successful
+        // TODO: move to activity
         if (resultCode == Activity.RESULT_OK) {
             val location: LatLng? = data?.extras?.getParcelable(NewEventActivity.KEY_LOCATION)
             val locationString = location?.latitude.toString() + ", " + location?.longitude.toString()

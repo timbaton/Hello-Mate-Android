@@ -1,8 +1,10 @@
 package com.example.kyrs.presentation.login
 
 import com.arellomobile.mvp.InjectViewState
+import com.example.kyrs.R
 import com.example.kyrs.data.repository.AuthRepository
 import com.example.kyrs.presentation.base.BasePresenter
+import com.example.kyrs.utils.ResourceManager
 import javax.inject.Inject
 
 
@@ -25,7 +27,7 @@ class LoginScreenPresenter @Inject constructor(
                 authRepository.saveAuthData(it.userId, it.token)
                 viewState.openMainScreen()
             }, {
-                viewState.showMessage("something is wrong")
+                viewState.showMessage(it.message.toString())
             }).connect()
     }
 

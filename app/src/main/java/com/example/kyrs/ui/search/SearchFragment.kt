@@ -60,19 +60,25 @@ class SearchFragment : BaseFragment(), SearchView {
     }
 
     override fun showEvents(events: List<Event>?) {
+        //TODO: extract to presenter
         if (events?.isNotEmpty()!!) {
             adapter.addList(events)
         } else {
-            tvState.text = "list is empty"
+            showEmptyList()
         }
     }
 
     override fun updateEvents(events: List<Event>?) {
+        //TODO: extract to presenter
         if (events?.isNotEmpty()!!) {
             adapter.updateList(events)
         } else {
-            tvState.text = "list is empty"
+            showEmptyList()
         }
+    }
+
+    private fun showEmptyList() {
+        tvState.text = getString(R.string.list_empty)
     }
 
     override fun hideLoader() {

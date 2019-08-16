@@ -14,6 +14,7 @@ import toothpick.config.Module
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-07-09
  */
 class AppModule(context: Context) : Module() {
+
     init {
         bind(Context::class.java).toInstance(context)
 

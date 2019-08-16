@@ -4,16 +4,14 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.provider.MediaStore
 import com.arellomobile.mvp.InjectViewState
+import com.example.kyrs.R
 import com.example.kyrs.data.entity.request.EditUserRequest
+import com.example.kyrs.data.repository.GalleryRepository
 import com.example.kyrs.data.repository.ProfileRepository
 import com.example.kyrs.data.sharedPref.AuthHolder
 import com.example.kyrs.presentation.base.BasePresenter
-import okhttp3.MediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import java.io.File
+import com.example.kyrs.utils.ResourceManager
 import javax.inject.Inject
 
 
@@ -28,8 +26,9 @@ import javax.inject.Inject
 @InjectViewState
 class EditProfilePresenter @Inject constructor(
     private val profileRepository: ProfileRepository,
-    private val authHolder: AuthHolder,
-    private val context: Context
+    private val galleryRepository: GalleryRepository,
+    private val resourceManager: ResourceManager,
+    private val authHolder: AuthHolder
 ) : BasePresenter<EditProfileView>() {
 
     private val GALLERY_REQUEST = 33
@@ -53,48 +52,33 @@ class EditProfilePresenter @Inject constructor(
         if (resultCode == Activity.RESULT_OK)
             when (requestCode) {
                 GALLERY_REQUEST -> {
-                    val newImageUri = data!!.data
+                    if (data != null) {
+                        val newImageUri = data.data!!
+                        viewState.setImage(newImageUri)
 
-                    viewState.setImage(newImageUri)
-
-                    sendAvatarRequest(newImageUri)
+                        sendAvatarRequest(newImageUri)
+                    } else {
+                        viewState.showMessage(resourceManager.getString(R.string.error))
+                    }
                 }
             }
     }
 
-    private fun sendAvatarRequest(newImageUri: Uri?) {
+    private fun sendAvatarRequest(newImageUri: Uri) {
 
-        var result: String? = null
-        val proj = arrayOf(MediaStore.Images.Media.DATA)
-        val cursor = context.contentResolver.query(newImageUri, proj, null, null, null)
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                val column_index = cursor.getColumnIndexOrThrow(proj[0])
-                result = cursor.getString(column_index)
+        galleryRepository.loadImage(newImageUri)
+            .flatMap {
+                profileRepository.uploadAvatar(it)
+
             }
-            cursor.close()
-        }
-        if (result == null) {
-            result = "Not found"
-        }
-
-        val file = File(result)
-
-        val requestFile = RequestBody.create(
-            MediaType.parse(context.contentResolver.getType(newImageUri)!!),
-            file
-        )
-
-        // MultipartBody.Part is used to send also the actual file name
-        val body = MultipartBody.Part.createFormData("picture", file.name, requestFile)
-
-        profileRepository.uploadAvatar(body)
             .subscribe({
                 viewState.fillUserData(it)
                 viewState.onBackPressed()
             }, {
                 viewState.showMessage(it.message.toString())
             }).connect()
+
+
     }
 
     fun onDoneClicked(name: String, surname: String, mail: String, phone: String) {

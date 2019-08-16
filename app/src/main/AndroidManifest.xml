@@ -45,11 +45,11 @@
         <activity
                 android:name=".ui.registration.RegistrationActivity"
                 android:theme="@style/NoStatusBar"/>
-        <activity android:name=".ui.main.MainContainerActivity"/>
-        <activity android:name=".ui.event.EventActivity"/>
-        <activity android:name=".ui.plans.ProfileActivity"/>
-        <activity android:name=".ui.new_event.NewEventActivity"/>
-        <activity android:name=".ui.editProfile.EditProfileActivity"/>
+        <activity  android:name=".ui.main.MainContainerActivity" android:screenOrientation="portrait"/>
+        <activity  android:name=".ui.event.EventActivity" android:screenOrientation="portrait"/>
+        <activity  android:name=".ui.plans.ProfileActivity" android:screenOrientation="portrait"/>
+        <activity  android:name=".ui.new_event.NewEventActivity" android:screenOrientation="portrait"/>
+        <activity  android:name=".ui.edit_profile.EditProfileActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

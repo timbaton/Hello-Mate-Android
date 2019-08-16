@@ -26,11 +26,11 @@ class ServerModule(baseUrl: String, imageUrl: String) : Module() {
         bind(String::class.java).withName(ServerPath::class.java).toInstance(baseUrl)
         bind(String::class.java).withName(ImagePath::class.java).toInstance(imageUrl)
 
-//        Retrofit
+        // Retrofit
         bind(OkHttpClient::class.java).toProvider(OkHttpClientProvider::class.java).providesSingletonInScope()
         bind(HelloMateApi::class.java).toProvider(ApiProvider::class.java).providesSingletonInScope()
 
-        //Repositories
+        // Repositories
         bind(AuthRepository::class.java).singletonInScope()
         bind(EventRepository::class.java).singletonInScope()
         bind(ProfileRepository::class.java).singletonInScope()
