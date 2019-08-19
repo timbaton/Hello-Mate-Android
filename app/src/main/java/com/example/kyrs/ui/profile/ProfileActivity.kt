@@ -84,6 +84,14 @@ class ProfileActivity : BaseActivity(), ProfileView {
             .into(ivAvatar)
     }
 
+    override fun hideUserContacts() {
+        llContacts.visible(false)
+    }
+
+    override fun showUserContacts() {
+        llContacts.visible(true)
+    }
+
     override fun openLoginActivity() {
         startActivity(LoginScreenActivity.getIntent(this))
         finish()

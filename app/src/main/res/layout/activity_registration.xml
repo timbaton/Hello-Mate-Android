@@ -17,10 +17,51 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+        <Space
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:textColorHint="@color/white_70"
+                android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:backgroundTint="@color/gray_edit_text"
+                    android:textColor="@color/white_70"
+                    android:textSize="18sp"
+                    android:textColorHint="@color/white_70"
+                    android:hint="@string/name"
+                    android:textStyle="bold"
+                    android:id="@+id/etName"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:textColorHint="@color/white_70"
+                android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:backgroundTint="@color/gray_edit_text"
+                    android:textColor="@color/white_70"
+                    android:textSize="18sp"
+                    android:textColorHint="@color/white_70"
+                    android:hint="@string/surname"
+                    android:textStyle="bold"
+                    android:id="@+id/etSurname"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
                 android:textColorHint="@color/white_70"
                 android:layout_width="match_parent"
-                android:layout_marginTop="210dp"
                 android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText

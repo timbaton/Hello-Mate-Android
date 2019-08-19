@@ -22,8 +22,13 @@ class RegistrationPresenter @Inject constructor(
         viewState.back()
     }
 
-    fun onRegistrationBtnClicked(login: String, password: String) {
-        authRepository.register(login, password).subscribe({
+    fun onRegistrationBtnClicked(
+        login: String,
+        password: String,
+        name: String,
+        surName: String
+    ) {
+        authRepository.register(login, password, name, surName).subscribe({
             authRepository.saveAuthData(it.userId, it.token)
             viewState.openMainScreen()
         }, {

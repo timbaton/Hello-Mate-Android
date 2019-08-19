@@ -12,6 +12,7 @@ import com.example.kyrs.presentation.search.SearchView
 import com.example.kyrs.ui.base.BaseFragment
 import com.example.kyrs.ui.event.EventActivity
 import com.example.kyrs.ui.plans.EventListAdapter
+import com.example.kyrs.utils.visible
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_plans.*
 import toothpick.Toothpick
@@ -62,6 +63,7 @@ class SearchFragment : BaseFragment(), SearchView {
     override fun showEvents(events: List<Event>?) {
         //TODO: extract to presenter
         if (events?.isNotEmpty()!!) {
+            tvState.visible(false)
             adapter.addList(events)
         } else {
             showEmptyList()
@@ -72,12 +74,16 @@ class SearchFragment : BaseFragment(), SearchView {
         //TODO: extract to presenter
         if (events?.isNotEmpty()!!) {
             adapter.updateList(events)
+            tvState.visible(false)
         } else {
             showEmptyList()
         }
     }
 
     private fun showEmptyList() {
+        adapter.clearItems()
+
+        tvState.visible(true)
         tvState.text = getString(R.string.list_empty)
     }
 

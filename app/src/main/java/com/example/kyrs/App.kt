@@ -26,6 +26,6 @@ class App : Application() {
         appScope.installModules(AppModule(this))
 
         val serverScope = Toothpick.openScopes(Scopes.App, Scopes.Server)
-        serverScope.installModules(ServerModule(BuildConfig.API_URL, BuildConfig.IMAGE_URL))
+        serverScope.installModules(ServerModule(BuildConfig.API_URL))
     }
 }

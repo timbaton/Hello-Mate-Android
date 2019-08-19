@@ -19,12 +19,12 @@ import toothpick.config.Module
  *
  * Created by Timur Badretdinov (aka timurbadretdinov) 2019-05-29
  */
-class ServerModule(baseUrl: String, imageUrl: String) : Module() {
+class ServerModule(baseUrl: String) : Module() {
 
     init {
 
         bind(String::class.java).withName(ServerPath::class.java).toInstance(baseUrl)
-        bind(String::class.java).withName(ImagePath::class.java).toInstance(imageUrl)
+        bind(String::class.java).withName(ImagePath::class.java).toInstance("$baseUrl/uploads/")
 
         // Retrofit
         bind(OkHttpClient::class.java).toProvider(OkHttpClientProvider::class.java).providesSingletonInScope()

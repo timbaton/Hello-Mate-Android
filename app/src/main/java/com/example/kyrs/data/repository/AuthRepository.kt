@@ -1,6 +1,7 @@
 package com.example.kyrs.data.repository
 
 import com.example.kyrs.data.entity.request.LoginRequest
+import com.example.kyrs.data.entity.request.RegisterRequest
 import com.example.kyrs.data.entity.response.LoginResponse
 import com.example.kyrs.data.network.HelloMateApi
 import com.example.kyrs.data.sharedPref.AuthHolder
@@ -36,9 +37,9 @@ class AuthRepository @Inject constructor(
         authHolder.token = token
     }
 
-    fun register(login: String, password: String): Single<LoginResponse> {
+    fun register(login: String, password: String, name: String, surName: String): Single<LoginResponse> {
 
-        val loginRequestBody = LoginRequest(login, password)
+        val loginRequestBody = RegisterRequest(login, password, name, surName)
         return api.register(loginRequestBody)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

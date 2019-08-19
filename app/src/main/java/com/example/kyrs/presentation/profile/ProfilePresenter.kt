@@ -36,6 +36,13 @@ class ProfilePresenter @Inject constructor(
         profileRepository.loadProfile(userId)
             .subscribe({
                 viewState.fillProfileData(it, serverPath)
+
+                if (it.mail == null || it.phone == null) {
+                    viewState.hideUserContacts()
+                } else {
+                    viewState.showUserContacts()
+                }
+
                 profileRepository.saveUserLocal(it)
             }, {
                 viewState.showMessage(it.message.toString())

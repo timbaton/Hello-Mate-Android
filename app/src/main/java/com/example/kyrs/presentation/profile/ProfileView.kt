@@ -20,4 +20,7 @@ interface ProfileView : BaseView {
 
     fun onBackPressed()
 
+    fun showUserContacts()
+    fun hideUserContacts()
+
 }

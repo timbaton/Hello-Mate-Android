@@ -87,8 +87,7 @@ class PlansFragment : BaseFragment(), PlansView {
             adapter.addList(events)
             tvState.visible(false)
         } else {
-            tvState.visible(true)
-            tvState.text = "list is empty"
+            showEmptyState()
         }
     }
 
@@ -97,9 +96,14 @@ class PlansFragment : BaseFragment(), PlansView {
             adapter.updateList(events)
             tvState.visible(false)
         } else {
-            tvState.visible(true)
-            tvState.text = "list is empty"
+            showEmptyState()
         }
+    }
+
+    private fun showEmptyState() {
+        adapter.clearItems()
+        tvState.visible(true)
+        tvState.text = getString(R.string.list_empty)
     }
 
     override fun hideLoader() {

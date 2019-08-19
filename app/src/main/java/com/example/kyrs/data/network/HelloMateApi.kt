@@ -4,6 +4,7 @@ import com.example.kyrs.data.entity.Event
 import com.example.kyrs.data.entity.request.EditUserRequest
 import com.example.kyrs.data.entity.request.LoginRequest
 import com.example.kyrs.data.entity.request.NewEventRequest
+import com.example.kyrs.data.entity.request.RegisterRequest
 import com.example.kyrs.data.entity.response.LoginResponse
 import com.example.kyrs.data.entity.response.ProfileResponse
 import io.reactivex.Single
@@ -24,14 +25,14 @@ import retrofit2.http.*
 
 interface HelloMateApi {
 
-    @GET("/rest/users/")
-    fun getProfile(@Query(value = "id") id: Int): Single<ProfileResponse>
-
     @POST("/rest/login")
     fun login(@Body loginRequest: LoginRequest): Single<LoginResponse>
 
     @POST("/rest/register")
-    fun register(@Body loginRequest: LoginRequest): Single<LoginResponse>
+    fun register(@Body registerRequest: RegisterRequest): Single<LoginResponse>
+
+    @GET("/rest/users/")
+    fun getProfile(@Query(value = "id") id: Int): Single<ProfileResponse>
 
     @POST("/rest/editUser")
     fun editUser(@Body editUserRequest: EditUserRequest): Single<ProfileResponse>
@@ -41,10 +42,10 @@ interface HelloMateApi {
     fun uploadAvatar(@Query(value = "id") user_id: Int, @Part file: MultipartBody.Part): Single<ProfileResponse>
 
     @GET("/rest/event")
-    fun getUserEvents(@Query(value = "user_id") id: Int): Single<List<Event>>
+    fun getAllEvents(@Query(value = "isFuture") isFuture: Boolean): Single<List<Event>>
 
     @GET("/rest/event")
-    fun getAllEvents(@Query(value = "isFuture") isFuture: Boolean): Single<List<Event>>
+    fun getUserEvents(@Query(value = "user_id") id: Int): Single<List<Event>>
 
     @POST("/rest/event_register")
     fun eventRegister(@Query(value = "event_id") event_id: Int, @Query(value = "user_id") user_id: Int): Single<Event>

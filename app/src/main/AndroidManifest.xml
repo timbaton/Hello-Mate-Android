@@ -3,11 +3,6 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.example.kyrs">
 
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality.
-    -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -27,10 +22,6 @@
                 android:value="@string/google_maps_key"/>
 
         <activity
-                android:name=".ui.map.MapActivity"
-                android:label="@string/title_activity_map">
-        </activity>
-        <activity
                 android:name=".ui.splash.SplashScreenActivity"
                 android:theme="@style/SplashTheme">
             <intent-filter>
@@ -39,17 +30,31 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+                android:name=".ui.map.MapActivity"
+                android:theme="@style/NoStatusBar"/>
         <activity
                 android:name=".ui.login.LoginScreenActivity"
                 android:theme="@style/NoStatusBar"/>
         <activity
                 android:name=".ui.registration.RegistrationActivity"
                 android:theme="@style/NoStatusBar"/>
-        <activity  android:name=".ui.main.MainContainerActivity" android:screenOrientation="portrait"/>
-        <activity  android:name=".ui.event.EventActivity" android:screenOrientation="portrait"/>
-        <activity  android:name=".ui.plans.ProfileActivity" android:screenOrientation="portrait"/>
-        <activity  android:name=".ui.new_event.NewEventActivity" android:screenOrientation="portrait"/>
-        <activity  android:name=".ui.edit_profile.EditProfileActivity" android:screenOrientation="portrait"/>
+        <activity
+                android:name=".ui.main.MainContainerActivity"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name=".ui.event.EventActivity"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name=".ui.plans.ProfileActivity"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name=".ui.new_event.NewEventActivity"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name=".ui.edit_profile.EditProfileActivity"
+                android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

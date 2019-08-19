@@ -50,7 +50,7 @@ class RegistrationActivity : BaseActivity(), RegistrationView {
         btnBack.setOnClickListener { presenter.onBackClicked() }
 
         btnReg.setOnClickListener {
-            presenter.onRegistrationBtnClicked(etLogin.text.toString(), etPassword.text.toString())
+            presenter.onRegistrationBtnClicked(etLogin.text.toString(), etPassword.text.toString(), etName.text.toString(), etSurname.text.toString())
         }
 
         btnReady.visible(false)
